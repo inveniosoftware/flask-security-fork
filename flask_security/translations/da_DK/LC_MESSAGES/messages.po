@@ -223,7 +223,7 @@ msgstr "Registrer"
 
 #: ../flask_security/forms.py:37
 msgid "Resend Confirmation Instructions"
-msgstr "Gensend Bekræftigelses Instruktioner"
+msgstr "Gensend Bekræftelses Instruktioner"
 
 #: ../flask_security/forms.py:38
 msgid "Recover Password"
@@ -255,7 +255,7 @@ msgstr "Menu"
 
 #: ../flask_security/templates/security/_menu.html:9
 msgid "Forgot password"
-msgstr "Glemt Adgangskode"
+msgstr "Glemt din adgangskode"
 
 #: ../flask_security/templates/security/_menu.html:12
 msgid "Confirm account"
@@ -287,7 +287,7 @@ msgstr "Hvis du ikke har ændret din adgangskode,"
 
 #: ../flask_security/templates/security/email/change_notice.html:4
 msgid "click here to reset it"
-msgstr "click her for at ændre den"
+msgstr "klik her for at ændre den"
 
 #: ../flask_security/templates/security/email/confirmation_instructions.html:1
 msgid "Please confirm your email through the link below:"
