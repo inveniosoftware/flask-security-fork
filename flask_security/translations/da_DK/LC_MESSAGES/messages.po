@@ -275,7 +275,7 @@ msgstr "Nulstil adgangskode"
 
 #: ../flask_security/templates/security/send_confirmation.html:3
 msgid "Resend confirmation instructions"
-msgstr "Gensend bekræftigelses instruktioner"
+msgstr "Gensend bekræftelses instruktioner"
 
 #: ../flask_security/templates/security/email/change_notice.html:1
 msgid "Your password has been changed."
