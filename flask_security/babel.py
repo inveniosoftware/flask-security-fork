@@ -1,6 +1,6 @@
 from flask_babelex import Domain
 from flask_security import translations
-
+from wtforms.i18n import messages_path
 
 class CustomDomain(Domain):
     def __init__(self):
@@ -13,7 +13,6 @@ gettext = domain.gettext
 ngettext = domain.ngettext
 lazy_gettext = domain.lazy_gettext
 
-from wtforms.i18n import messages_path
 
 wtforms_domain = Domain(messages_path(), domain='wtforms')
 
