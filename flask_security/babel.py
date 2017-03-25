@@ -2,6 +2,7 @@ from flask_babelex import Domain
 from flask_security import translations
 from wtforms.i18n import messages_path
 
+
 class CustomDomain(Domain):
     def __init__(self):
         super(CustomDomain, self).__init__(
