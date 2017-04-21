@@ -162,3 +162,11 @@ def test_access_datastore_from_factory(app, datastore):
 
     assert security.datastore is not None
     assert security.app is not None
+
+
+def test_prepare_user_activate_args(app, datastore):
+    init_app_with_options(app, datastore)
+
+    user = datastore.find_user(email='matt@lp.com')
+    assert datastore._prepare_user_activate_args(user) == user
+    assert datastore._prepare_user_activate_args(user.email) == user
