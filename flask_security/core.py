@@ -218,13 +218,14 @@ def _user_loader(user_id):
 
 def _identity_loader():
     if not isinstance(current_user._get_current_object(), AnonymousUserMixin):
-        identity = Identity(current_user.id)
+        identity = Identity(current_user.get_id())
         return identity
 
 
 def _on_identity_loaded(sender, identity):
-    if hasattr(current_user, 'id'):
-        identity.provides.add(UserNeed(current_user.id))
+    id_ = current_user.get_id()
+    if id_ is not None:
+        identity.provides.add(UserNeed(id_))
 
     for role in getattr(current_user, 'roles', []):
         identity.provides.add(RoleNeed(role.name))
