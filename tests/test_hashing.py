@@ -9,7 +9,7 @@
 from pytest import raises
 from utils import authenticate, init_app_with_options
 
-from flask_security.utils import encrypt_password, verify_password
+from flask_security.utils import hash_password, verify_password
 
 
 def test_verify_password_bcrypt_double_hash(app, sqlalchemy_datastore):
@@ -19,7 +19,7 @@ def test_verify_password_bcrypt_double_hash(app, sqlalchemy_datastore):
         'SECURITY_PASSWORD_SINGLE_HASH': False,
     })
     with app.app_context():
-        assert verify_password('pass', encrypt_password('pass'))
+        assert verify_password('pass', hash_password('pass'))
 
 
 def test_verify_password_bcrypt_single_hash(app, sqlalchemy_datastore):
@@ -29,7 +29,7 @@ def test_verify_password_bcrypt_single_hash(app, sqlalchemy_datastore):
         'SECURITY_PASSWORD_SINGLE_HASH': True,
     })
     with app.app_context():
-        assert verify_password('pass', encrypt_password('pass'))
+        assert verify_password('pass', hash_password('pass'))
 
 
 def test_verify_password_bcrypt_rounds_too_low(app, sqlalchemy_datastore):

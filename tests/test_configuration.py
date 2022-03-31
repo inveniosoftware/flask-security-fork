@@ -22,11 +22,11 @@ def test_view_configuration(client):
 
     response = authenticate(client, endpoint='/custom_login')
     assert 'location' in response.headers
-    assert response.headers['Location'] == 'http://localhost/post_login'
+    assert response.headers['Location'] == '/post_login'
 
     response = logout(client, endpoint='/custom_logout')
     assert 'location' in response.headers
-    assert response.headers['Location'] == 'http://localhost/post_logout'
+    assert response.headers['Location'] == '/post_logout'
 
 
 @pytest.mark.settings(login_user_template='custom_security/login_user.html')

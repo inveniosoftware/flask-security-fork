@@ -13,8 +13,7 @@ import os
 import tempfile
 
 import pytest
-from flask import Flask, jsonify, render_template
-from flask import request as flask_request
+from flask import Flask, render_template
 from flask.json import JSONEncoder as BaseEncoder
 from flask_babelex import Babel
 from flask_mail import Mail
@@ -183,8 +182,7 @@ def sqlalchemy_session_datastore(request, app, tmpdir):
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + path
 
-    engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'],
-                           convert_unicode=True)
+    engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
     db_session = scoped_session(sessionmaker(autocommit=False,
                                              autoflush=False,
                                              bind=engine))
@@ -252,7 +250,7 @@ def client(request, sqlalchemy_app):
     return app.test_client()
 
 
-@pytest.yield_fixture()
+@pytest.fixture()
 def in_app_context(request, sqlalchemy_app):
     app = sqlalchemy_app()
     with app.app_context():
@@ -280,13 +278,11 @@ def datastore(
 
 
 @pytest.fixture()
-def script_info(app, datastore):
-    from flask.cli import ScriptInfo
-
-    def create_app(info):
+def cli_app(app, datastore):
+    def create_app():
         app.config.update(**{
             'SECURITY_USER_IDENTITY_ATTRIBUTES': ('email', 'username')
         })
         app.security = Security(app, datastore=datastore)
         return app
-    return ScriptInfo(create_app=create_app)
+    return create_app()
