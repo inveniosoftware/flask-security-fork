@@ -136,7 +136,7 @@ def test_unauthorized_access_with_referrer(client, get_message):
         '/admin?a=b',
         headers={'referer': 'http://localhost/admin?x=y'}
     )
-    assert response.headers['Location'] == '/'
+    assert response.headers['Location'] in ['/', 'http://localhost/']
     client.get(response.headers['Location'])
 
     response = client.get('/admin',

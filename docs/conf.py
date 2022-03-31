@@ -15,6 +15,8 @@
 import os
 import sys
 
+from flask_security import __version__
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -50,7 +52,7 @@ copyright = u'2012-2019, Matt Wright, 2022 CERN'
 # built documents.
 #
 # The short X.Y version.
-version = '3.0.2'
+version = __version__
 # The full version, including alpha/beta/rc tags.
 release = version
 
