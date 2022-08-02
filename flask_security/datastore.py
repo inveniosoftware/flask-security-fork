@@ -57,13 +57,13 @@ class UserDatastore(object):
         return user, role
 
     def _prepare_create_user_args(self, **kwargs):
-        kwargs.setdefault('active', True)
-        roles = kwargs.get('roles', [])
+        kwargs.setdefault("active", True)
+        roles = kwargs.get("roles", [])
         for i, role in enumerate(roles):
             rn = role.name if isinstance(role, self.role_model) else role
             # see if the role exists
             roles[i] = self.find_role(rn)
-        kwargs['roles'] = roles
+        kwargs["roles"] = roles
         return kwargs
 
     def get_user(self, id_or_email):
@@ -161,17 +161,20 @@ class SQLAlchemyUserDatastore(SQLAlchemyDatastore, UserDatastore):
     """A SQLAlchemy datastore implementation for Flask-Security that assumes the
     use of the Flask-SQLAlchemy extension.
     """
+
     def __init__(self, db, user_model, role_model):
         SQLAlchemyDatastore.__init__(self, db)
         UserDatastore.__init__(self, user_model, role_model)
 
     def get_user(self, identifier):
         from sqlalchemy import func as alchemyFn
+
         if self._is_numeric(identifier):
             return self.user_model.query.get(identifier)
         for attr in get_identity_attributes():
-            query = alchemyFn.lower(getattr(self.user_model, attr)) \
-                == alchemyFn.lower(identifier)
+            query = alchemyFn.lower(getattr(self.user_model, attr)) == alchemyFn.lower(
+                identifier
+            )
             rv = self.user_model.query.filter(query).first()
             if rv is not None:
                 return rv
@@ -190,20 +193,18 @@ class SQLAlchemyUserDatastore(SQLAlchemyDatastore, UserDatastore):
         return self.role_model.query.filter_by(name=role).first()
 
 
-class SQLAlchemySessionUserDatastore(SQLAlchemyUserDatastore,
-                                     SQLAlchemyDatastore):
+class SQLAlchemySessionUserDatastore(SQLAlchemyUserDatastore, SQLAlchemyDatastore):
     """A SQLAlchemy datastore implementation for Flask-Security that assumes the
     use of the flask_sqlalchemy_session extension.
     """
-    def __init__(self, session, user_model, role_model):
 
+    def __init__(self, session, user_model, role_model):
         class PretendFlaskSQLAlchemyDb(object):
-            """ This is a pretend db object, so we can just pass in a session.
-            """
+            """This is a pretend db object, so we can just pass in a session."""
+
             def __init__(self, session):
                 self.session = session
 
-        SQLAlchemyUserDatastore.__init__(self,
-                                         PretendFlaskSQLAlchemyDb(session),
-                                         user_model,
-                                         role_model)
+        SQLAlchemyUserDatastore.__init__(
+            self, PretendFlaskSQLAlchemyDb(session), user_model, role_model
+        )

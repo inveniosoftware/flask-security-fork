@@ -16,33 +16,32 @@ _missing = object
 
 
 def authenticate(
-        client,
-        email="matt@lp.com",
-        password="password",
-        endpoint=None,
-        **kwargs):
+    client, email="matt@lp.com", password="password", endpoint=None, **kwargs
+):
     data = dict(email=email, password=password)
-    return client.post(endpoint or '/login', data=data, **kwargs)
+    return client.post(endpoint or "/login", data=data, **kwargs)
 
 
 def logout(client, endpoint=None, **kwargs):
-    return client.get(endpoint or '/logout', **kwargs)
+    return client.get(endpoint or "/logout", **kwargs)
 
 
 def create_roles(ds):
-    for role in ('admin', 'editor', 'author'):
+    for role in ("admin", "editor", "author"):
         ds.create_role(name=role)
     ds.commit()
 
 
 def create_users(ds, count=None):
-    users = [('matt@lp.com', 'matt', 'password', ['admin'], True),
-             ('joe@lp.com', 'joe', 'password', ['editor'], True),
-             ('dave@lp.com', 'dave', 'password', ['admin', 'editor'], True),
-             ('jill@lp.com', 'jill', 'password', ['author'], True),
-             ('tiya@lp.com', 'tiya', 'password', [], False),
-             ('gene@lp.com', 'gene', 'password', [], True),
-             ('jess@lp.com', 'jess', None, [], True)]
+    users = [
+        ("matt@lp.com", "matt", "password", ["admin"], True),
+        ("joe@lp.com", "joe", "password", ["editor"], True),
+        ("dave@lp.com", "dave", "password", ["admin", "editor"], True),
+        ("jill@lp.com", "jill", "password", ["author"], True),
+        ("tiya@lp.com", "tiya", "password", [], False),
+        ("gene@lp.com", "gene", "password", [], True),
+        ("jess@lp.com", "jess", None, [], True),
+    ]
     count = count or len(users)
 
     for u in users[:count]:
@@ -51,20 +50,16 @@ def create_users(ds, count=None):
             pw = hash_password(pw)
         roles = [ds.find_or_create_role(rn) for rn in u[3]]
         ds.commit()
-        user = ds.create_user(
-            email=u[0],
-            username=u[1],
-            password=pw,
-            active=u[4])
+        user = ds.create_user(email=u[0], username=u[1], password=pw, active=u[4])
         ds.commit()
         for role in roles:
             ds.add_role_to_user(user, role)
         ds.commit()
 
 
-def populate_data(app, user_count=None):
-    ds = app.security.datastore
-    with app.app_context():
+def populate_data(base_app, user_count=None):
+    ds = base_app.security.datastore
+    with base_app.app_context():
         create_roles(ds)
         create_users(ds, user_count)
 
@@ -74,8 +69,8 @@ class Response(BaseResponse):  # pragma: no cover
     pass
 
 
-def init_app_with_options(app, datastore, **options):
-    security_args = options.pop('security_args', {})
-    app.config.update(**options)
-    app.security = Security(app, datastore=datastore, **security_args)
-    populate_data(app)
+def init_app_with_options(base_app, datastore, **options):
+    security_args = options.pop("security_args", {})
+    base_app.config.update(**options)
+    base_app.security = Security(base_app, datastore=datastore, **security_args)
+    populate_data(base_app)
