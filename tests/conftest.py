@@ -11,10 +11,10 @@
 
 import os
 import tempfile
+from json import JSONEncoder as BaseEncoder
 
 import pytest
 from flask import Flask, render_template
-from flask.json import JSONEncoder as BaseEncoder
 from flask_babel import Babel
 from flask_mail import Mail
 from speaklater import is_lazy_string
@@ -70,7 +70,7 @@ def app(request):
     if babel is None or babel.args[0]:
         babel = Babel(app)
         app.babel = babel
-    app.json_encoder = JSONEncoder
+    app.json_provider_class = JSONEncoder
     app.mail = mail
 
     @app.route("/")
