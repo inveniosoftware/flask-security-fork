@@ -10,13 +10,13 @@
 """
 
 from flask import Blueprint, after_this_request, current_app, redirect, request
-from flask_login import current_user
+from flask_login import current_user, login_required
 from werkzeug.local import LocalProxy
 
 from .changeable import change_user_password
 from .confirmable import confirm_email_token_status, confirm_user, \
     send_confirmation_instructions
-from .decorators import anonymous_user_required, login_required
+from .decorators import anonymous_user_required
 from .recoverable import reset_password_token_status, \
     send_reset_password_instructions, update_password
 from .registerable import register_user

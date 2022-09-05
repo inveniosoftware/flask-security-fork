@@ -26,10 +26,11 @@ except AttributeError:
     from werkzeug import security
     security.safe_str_cmp = hmac.compare_digest
 
+from flask_login import login_required
+
 from .core import AnonymousUser, RoleMixin, Security, UserMixin, current_user
 from .datastore import SQLAlchemySessionUserDatastore, SQLAlchemyUserDatastore
-from .decorators import auth_required, login_required, roles_accepted, \
-    roles_required
+from .decorators import auth_required, roles_accepted, roles_required
 from .forms import ConfirmRegisterForm, ForgotPasswordForm, LoginForm, \
     RegisterForm, ResetPasswordForm
 from .signals import confirm_instructions_sent, password_reset, \

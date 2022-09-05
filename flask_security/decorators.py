@@ -9,13 +9,11 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from collections import namedtuple
 from functools import wraps
 
-from flask import Response, _request_ctx_stack, abort, current_app, redirect, \
-    request, url_for
-from flask_login import current_user, login_required  # pragma: no flakes
-from flask_principal import Identity, Permission, RoleNeed, identity_changed
+from flask import Response, abort, current_app, redirect, request, url_for
+from flask_login import current_user  # pragma: no flakes
+from flask_principal import Permission, RoleNeed
 from werkzeug.local import LocalProxy
 from werkzeug.routing import BuildError
 

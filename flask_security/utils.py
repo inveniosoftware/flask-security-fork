@@ -26,8 +26,7 @@ from flask_principal import AnonymousIdentity, Identity, identity_changed
 from itsdangerous import BadSignature, SignatureExpired
 from werkzeug.local import LocalProxy
 
-from .signals import login_instructions_sent, \
-    reset_password_instructions_sent, user_registered
+from .signals import reset_password_instructions_sent, user_registered
 
 # Convenient references
 _security = LocalProxy(lambda: current_app.extensions['security'])
