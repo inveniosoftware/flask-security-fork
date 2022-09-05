@@ -260,12 +260,6 @@ def test_custom_forms_via_config(app, sqlalchemy_datastore):
     assert b'My Register Email Address Field' in response.data
 
 
-@pytest.mark.babel(False)
-def test_without_babel(client):
-    response = client.get('/login')
-    assert b'Login' in response.data
-
-
 def test_no_email_sender(app):
     """ Verify that if SECURITY_EMAIL_SENDER is default
         (which is a local proxy) that send_mail picks up MAIL_DEFAULT_SENDER.
