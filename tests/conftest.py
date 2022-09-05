@@ -15,7 +15,7 @@ import tempfile
 import pytest
 from flask import Flask, render_template
 from flask.json import JSONEncoder as BaseEncoder
-from flask_babelex import Babel
+from flask_babel import Babel
 from flask_mail import Mail
 from speaklater import is_lazy_string
 from utils import Response, populate_data
