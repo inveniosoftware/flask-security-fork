@@ -161,8 +161,9 @@ class SendConfirmationForm(Form, UserEmailFormMixin):
         if request.method == 'GET':
             self.email.data = request.args.get('email', None)
 
-    def validate(self):
-        if not super(SendConfirmationForm, self).validate():
+    def validate(self, extra_validators=None):
+        if not super(SendConfirmationForm, self)\
+            .validate(extra_validators=extra_validators):
             return False
         if self.user.confirmed_at is not None:
             self.email.errors.append(get_message('ALREADY_CONFIRMED')[0])
@@ -175,8 +176,9 @@ class ForgotPasswordForm(Form, UserEmailFormMixin):
 
     submit = SubmitField(get_form_field_label('recover_password'))
 
-    def validate(self):
-        if not super(ForgotPasswordForm, self).validate():
+    def validate(self, extra_validators=None):
+        if not super(ForgotPasswordForm, self)\
+            .validate(extra_validators=extra_validators):
             return False
         if requires_confirmation(self.user):
             self.email.errors.append(get_message('CONFIRMATION_REQUIRED')[0])
@@ -205,8 +207,8 @@ class LoginForm(Form, NextFormMixin):
             ))
             self.password.description = html
 
-    def validate(self):
-        if not super(LoginForm, self).validate():
+    def validate(self, extra_validators=None):
+        if not super(LoginForm, self).validate(extra_validators=extra_validators):
             return False
 
         self.user = _datastore.get_user(self.email.data)
@@ -267,8 +269,9 @@ class ChangePasswordForm(Form, PasswordFormMixin):
 
     submit = SubmitField(get_form_field_label('change_password'))
 
-    def validate(self):
-        if not super(ChangePasswordForm, self).validate():
+    def validate(self, extra_validators=None):
+        if not super(ChangePasswordForm, self)\
+            .validate(extra_validators=extra_validators):
             return False
 
         if not verify_and_update_password(self.password.data, current_user):

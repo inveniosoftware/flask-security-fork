@@ -158,9 +158,8 @@ def test_reset_token_deleted_user(app, client, get_message,
     token = requests[0]['token']
 
     # Delete user
-    with app.app_context():
-        sqlalchemy_datastore.delete(user)
-        sqlalchemy_datastore.commit()
+    sqlalchemy_datastore.delete(user)
+    sqlalchemy_datastore.commit()
 
     response = client.post('/reset/' + token, data={
         'password': 'newpassword',

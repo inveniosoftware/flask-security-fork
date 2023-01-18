@@ -100,9 +100,8 @@ def test_confirmable_flag(app, client, sqlalchemy_datastore, get_message):
     user = registrations[0]['user']
     token = registrations[0]['confirm_token']
 
-    with app.app_context():
-        sqlalchemy_datastore.delete(user)
-        sqlalchemy_datastore.commit()
+    sqlalchemy_datastore.delete(user)
+    sqlalchemy_datastore.commit()
 
     response = client.get('/confirm/' + token, follow_redirects=True)
     assert get_message('INVALID_CONFIRMATION_TOKEN') in response.data
@@ -135,18 +134,20 @@ def test_email_conflict_for_confirmation_token(app, client, get_message,
         data = dict(email='mary@lp.com', password='password', next='')
         client.post('/register', data=data, follow_redirects=True)
 
-    user = registrations[0]['user']
-    token = registrations[0]['confirm_token']
+        user = registrations[0]['user']
+        token = registrations[0]['confirm_token']
 
     # Change the user's email
     user.email = 'tom@lp.com'
-    with app.app_context():
-        sqlalchemy_datastore.put(user)
-        sqlalchemy_datastore.commit()
+    sqlalchemy_datastore.put(user)
+    sqlalchemy_datastore.commit()
 
     response = client.get('/confirm/' + token, follow_redirects=True)
     msg = get_message('INVALID_CONFIRMATION_TOKEN')
     assert msg in response.data
+
+    user_changed = sqlalchemy_datastore.get_user(user.id)
+    assert user_changed.email == 'tom@lp.com'
 
 
 @pytest.mark.registerable()
