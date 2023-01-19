@@ -36,7 +36,7 @@ from .signals import confirm_instructions_sent, password_reset, \
     reset_password_instructions_sent, user_confirmed, user_registered
 from .utils import login_user, logout_user, url_for_security
 
-__version__ = '3.1.3'
+__version__ = '3.1.4'
 __all__ = (
     'AnonymousUser',
     'auth_required',

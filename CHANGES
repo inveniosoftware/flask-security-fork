@@ -4,6 +4,12 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 3.1.4
+-------------
+Released January 19th 2023
+
+- provide compatibility with flask-wtf v1.1.0: adapt .validate method signature
+
 Version 3.1.3
 -------------
 
