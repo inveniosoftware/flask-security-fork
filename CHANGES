@@ -4,6 +4,13 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 3.2.0
+-------------
+
+Released February 28th 2023
+
+- remove deprecated flask-babelex dependency
+
 Version 3.1.4
 -------------
 Released January 19th 2023
