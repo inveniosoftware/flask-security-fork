@@ -11,6 +11,7 @@
 
 import os
 import tempfile
+import uuid
 from json import JSONEncoder as BaseEncoder
 
 import pytest
@@ -161,11 +162,11 @@ def sqlalchemy_datastore(request, app, tmpdir):
     roles_users = db.Table(
         "roles_users",
         db.Column("user_id", db.Integer(), db.ForeignKey("user.id")),
-        db.Column("role_id", db.Integer(), db.ForeignKey("role.id")),
+        db.Column("role_id", db.String(80), db.ForeignKey("role.id")),
     )
 
     class Role(db.Model, RoleMixin):
-        id = db.Column(db.Integer(), primary_key=True)
+        id = db.Column(db.String(80), primary_key=True, default=lambda x: str(uuid.uuid4()))
         name = db.Column(db.String(80), unique=True)
         description = db.Column(db.String(255))
 
@@ -219,11 +220,11 @@ def sqlalchemy_session_datastore(request, app, tmpdir):
         __tablename__ = "roles_users"
         id = Column(Integer(), primary_key=True)
         user_id = Column("user_id", Integer(), ForeignKey("user.id"))
-        role_id = Column("role_id", Integer(), ForeignKey("role.id"))
+        role_id = Column("role_id", String(80), ForeignKey("role.id"))
 
     class Role(Base, RoleMixin):
         __tablename__ = "role"
-        id = Column(Integer(), primary_key=True)
+        id = Column(String(80), primary_key=True, default=lambda x: str(uuid.uuid4()))
         name = Column(String(80), unique=True)
         description = Column(String(255))
 

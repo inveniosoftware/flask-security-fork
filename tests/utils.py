@@ -31,7 +31,7 @@ def logout(client, endpoint=None, **kwargs):
 
 def create_roles(ds):
     for role in ('admin', 'editor', 'author'):
-        ds.create_role(name=role)
+        ds.create_role(id=role, name=role)
     ds.commit()
 
 
