@@ -146,7 +146,7 @@ def test_email_conflict_for_confirmation_token(app, client, get_message,
     msg = get_message('INVALID_CONFIRMATION_TOKEN')
     assert msg in response.data
 
-    user_changed = sqlalchemy_datastore.get_user(user.id)
+    user_changed = sqlalchemy_datastore.get_user_by_email(user.id)
     assert user_changed.email == 'tom@lp.com'
 
 

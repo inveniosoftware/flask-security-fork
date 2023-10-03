@@ -66,8 +66,12 @@ class UserDatastore(object):
         kwargs['roles'] = roles
         return kwargs
 
-    def get_user(self, id_or_email):
-        """Returns a user matching the specified ID or email address."""
+    def get_user_by_email(self, email):
+        """Returns a user matching the specified email address."""
+        raise NotImplementedError
+
+    def get_user_by_id(self, id):
+        """Returns a user matching the specified ID."""
         raise NotImplementedError
 
     def find_user(self, *args, **kwargs):
@@ -165,10 +169,8 @@ class SQLAlchemyUserDatastore(SQLAlchemyDatastore, UserDatastore):
         SQLAlchemyDatastore.__init__(self, db)
         UserDatastore.__init__(self, user_model, role_model)
 
-    def get_user(self, identifier):
+    def get_user_by_email(self, identifier):
         from sqlalchemy import func as alchemyFn
-        if self._is_numeric(identifier):
-            return self.user_model.query.get(identifier)
         for attr in get_identity_attributes():
             query = alchemyFn.lower(getattr(self.user_model, attr)) \
                 == alchemyFn.lower(identifier)
@@ -176,12 +178,8 @@ class SQLAlchemyUserDatastore(SQLAlchemyDatastore, UserDatastore):
             if rv is not None:
                 return rv
 
-    def _is_numeric(self, value):
-        try:
-            int(value)
-        except (TypeError, ValueError):
-            return False
-        return True
+    def get_user_by_id(self, identifier):
+        return self.user_model.query.get(identifier)
 
     def find_user(self, **kwargs):
         return self.user_model.query.filter_by(**kwargs).first()

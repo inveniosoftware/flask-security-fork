@@ -74,13 +74,13 @@ def get_form_field_label(key):
 
 
 def unique_user_email(form, field):
-    if _datastore.get_user(field.data) is not None:
+    if _datastore.get_user_by_email(field.data) is not None:
         msg = get_message('EMAIL_ALREADY_ASSOCIATED', email=field.data)[0]
         raise ValidationError(msg)
 
 
 def valid_user_email(form, field):
-    form.user = _datastore.get_user(field.data)
+    form.user = _datastore.get_user_by_email(field.data)
     if form.user is None:
         raise ValidationError(get_message('USER_DOES_NOT_EXIST')[0])
 
@@ -211,7 +211,7 @@ class LoginForm(Form, NextFormMixin):
         if not super(LoginForm, self).validate(extra_validators=extra_validators):
             return False
 
-        self.user = _datastore.get_user(self.email.data)
+        self.user = _datastore.get_user_by_email(self.email.data)
 
         if self.user is None:
             self.email.errors.append(get_message('USER_DOES_NOT_EXIST')[0])
