@@ -8,6 +8,7 @@
     :copyright: (c) 2012 by Matt Wright.
     :license: MIT, see LICENSE for more details.
 """
+import warnings
 
 from .utils import get_identity_attributes
 
@@ -65,6 +66,10 @@ class UserDatastore(object):
             roles[i] = self.find_role(rn)
         kwargs['roles'] = roles
         return kwargs
+
+    def get_user(self, id_or_email):
+        """Returns a user matching the specified ID or email address."""
+        raise NotImplementedError
 
     def get_user_by_email(self, email):
         """Returns a user matching the specified email address."""
@@ -168,6 +173,21 @@ class SQLAlchemyUserDatastore(SQLAlchemyDatastore, UserDatastore):
     def __init__(self, db, user_model, role_model):
         SQLAlchemyDatastore.__init__(self, db)
         UserDatastore.__init__(self, user_model, role_model)
+
+    def get_user(self, identifier):
+        warnings.warn(
+            "get_user method is deprecated, user get_user_by_email/get_user_by_id",
+            DeprecationWarning
+        )
+        from sqlalchemy import func as alchemyFn
+        if isinstance(identifier, int):
+            return self.user_model.query.get(identifier)
+        for attr in get_identity_attributes():
+            query = alchemyFn.lower(getattr(self.user_model, attr)) \
+                == alchemyFn.lower(identifier)
+            rv = self.user_model.query.filter(query).first()
+            if rv is not None:
+                return rv
 
     def get_user_by_email(self, identifier):
         from sqlalchemy import func as alchemyFn
