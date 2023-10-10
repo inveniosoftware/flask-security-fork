@@ -174,13 +174,20 @@ class SQLAlchemyUserDatastore(SQLAlchemyDatastore, UserDatastore):
         SQLAlchemyDatastore.__init__(self, db)
         UserDatastore.__init__(self, user_model, role_model)
 
+    def _is_numeric(self, value):
+        try:
+            int(value)
+        except (TypeError, ValueError):
+            return False
+        return True
+
     def get_user(self, identifier):
         warnings.warn(
             "get_user method is deprecated, user get_user_by_email/get_user_by_id",
             DeprecationWarning
         )
         from sqlalchemy import func as alchemyFn
-        if isinstance(identifier, int):
+        if self._is_numeric(identifier):
             return self.user_model.query.get(identifier)
         for attr in get_identity_attributes():
             query = alchemyFn.lower(getattr(self.user_model, attr)) \
