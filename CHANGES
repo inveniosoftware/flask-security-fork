@@ -4,6 +4,13 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 3.3.1
+-------------
+
+Released October 10th 2023
+
+- datastore: fix user id evaluation
+
 Version 3.3.0
 -------------
 
