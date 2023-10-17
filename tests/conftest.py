@@ -14,7 +14,7 @@ import tempfile
 from json import JSONEncoder as BaseEncoder
 
 import pytest
-from flask import Flask, render_template
+from flask import Flask, current_app, render_template
 from flask_babel import Babel
 from flask_mail import Mail
 from speaklater import is_lazy_string
@@ -22,7 +22,8 @@ from utils import Response, populate_data
 
 from flask_security import RoleMixin, Security, \
     SQLAlchemySessionUserDatastore, SQLAlchemyUserDatastore, UserMixin, \
-    auth_required, login_required, roles_accepted, roles_required
+    auth_required, impersonate_user, login_required, roles_accepted, \
+    roles_required
 
 
 class JSONEncoder(BaseEncoder):
@@ -123,6 +124,15 @@ def app(request):
 
     @app.route("/page1")
     def page_1():
+        return "Page 1"
+
+    @login_required
+    @app.route("/impersonate/<user>", methods=["POST"])
+    def impersonate(user):
+        from flask import g
+        user = current_app.security.datastore.get_user(user)
+
+        impersonate_user(user, g.identity)
         return "Page 1"
 
     def delete_user_from_g(exception):

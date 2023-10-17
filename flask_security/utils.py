@@ -45,6 +45,26 @@ def _(translate):
     return translate
 
 
+def impersonate_user(user, impersonator_idty):
+    """Impersonate a user.
+
+    Logouts the current user, and login the new user.
+
+    Can login inactive users and doesn't track login time.
+    """
+    logout_user()
+
+    session["_impersonator_id"] = impersonator_idty.id
+    if not _login_user(user, force=True):
+        if "_impersonator_id" in session:
+            session.pop("_impersonator_id")
+        return False
+
+    identity_changed.send(current_app._get_current_object(),
+                          identity=Identity(user.id))
+    return True
+
+
 def login_user(user, **kwargs):
     """Perform the login routine.
 

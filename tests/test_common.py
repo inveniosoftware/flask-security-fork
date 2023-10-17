@@ -190,3 +190,15 @@ def test_user_deleted_during_session_reverts_to_anonymous_user(app, client):
 
     response = client.get('/')
     assert b'Hello matt@lp.com' not in response.data
+
+def test_impersonate_user(app, client):
+    authenticate(client)
+    response = client.get('/')
+    assert b'Hello matt@lp.com' in response.data
+
+    # Impersonate
+    client.post('/impersonate/joe@lp.com')
+
+    response = client.get('/')
+    assert b'Hello matt@lp.com' not in response.data
+    assert b'Hello joe@lp.com' in response.data

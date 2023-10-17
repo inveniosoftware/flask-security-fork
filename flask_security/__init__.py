@@ -35,7 +35,7 @@ from .forms import ConfirmRegisterForm, ForgotPasswordForm, LoginForm, \
     RegisterForm, ResetPasswordForm
 from .signals import confirm_instructions_sent, password_reset, \
     reset_password_instructions_sent, user_confirmed, user_registered
-from .utils import login_user, logout_user, url_for_security
+from .utils import impersonate_user, login_user, logout_user, url_for_security
 
 __version__ = '3.3.1'
 __all__ = (
@@ -45,6 +45,7 @@ __all__ = (
     'ConfirmRegisterForm',
     'current_user',
     'ForgotPasswordForm',
+    'impersonate_user',
     'login_required',
     'login_user',
     'LoginForm',
