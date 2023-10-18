@@ -110,7 +110,7 @@ def logout_user():
     This will also clean up the remember me cookie if it exists.
     """
 
-    for key in ('identity.name', 'identity.auth_type'):
+    for key in ('identity.name', 'identity.auth_type', '_impersonator_id'):
         session.pop(key, None)
     identity_changed.send(current_app._get_current_object(),
                           identity=AnonymousIdentity())
