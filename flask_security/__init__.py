@@ -18,12 +18,14 @@
 try:
     # Werkzeug <2.1
     from werkzeug import security
+
     security.safe_str_cmp
 except AttributeError:
     # Werkzeug >=2.1
     import hmac
 
     from werkzeug import security
+
     security.safe_str_cmp = hmac.compare_digest
 
 from flask_login import login_required
@@ -37,7 +39,7 @@ from .signals import confirm_instructions_sent, password_reset, \
     reset_password_instructions_sent, user_confirmed, user_registered
 from .utils import impersonate_user, login_user, logout_user, url_for_security
 
-__version__ = '3.3.2'
+__version__ = "3.3.3"
 __all__ = (
     'AnonymousUser',
     'auth_required',

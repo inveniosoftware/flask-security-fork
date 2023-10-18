@@ -4,6 +4,13 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 3.3.3
+-------------
+
+Released October 18th 2023
+
+- Removes `impesonator_id` from the session on logout.
+
 Version 3.3.2
 -------------
 
