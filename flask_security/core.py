@@ -227,7 +227,7 @@ def _on_identity_loaded(sender, identity):
         identity.provides.add(UserNeed(current_user.id))
 
     for role in getattr(current_user, 'roles', []):
-        identity.provides.add(RoleNeed(role.name))
+        identity.provides.add(RoleNeed(role.id))
 
     identity.user = current_user
 

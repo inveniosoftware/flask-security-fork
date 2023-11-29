@@ -60,7 +60,7 @@ def _get_unauthorized_view():
 
 def auth_required(*auth_methods):
     """
-    Decorator that protects enpoints through multiple mechanisms
+    Decorator that protects endpoints through multiple mechanisms
     Example::
 
         @app.route('/dashboard')

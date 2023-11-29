@@ -13,6 +13,8 @@ Core
 
 Protecting Views
 ----------------
+.. autofunction:: flask_security.decorators.auth_required
+
 .. autofunction:: flask_security.decorators.roles_required
 
 .. autofunction:: flask_security.decorators.roles_accepted
