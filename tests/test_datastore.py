@@ -82,24 +82,24 @@ def test_activate_returns_false_if_already_true():
 
 
 def test_get_user(app, datastore):
-    init_app_with_options(app, datastore, **{
-        'SECURITY_USER_IDENTITY_ATTRIBUTES': ('email', 'username')
-    })
+    init_app_with_options(
+        app, datastore, **{"SECURITY_USER_IDENTITY_ATTRIBUTES": ("email", "username")}
+    )
 
     with app.app_context():
-        user_id = datastore.find_user(email='matt@lp.com').id
+        user_id = datastore.find_user(email="matt@lp.com").id
 
         user = datastore.get_user(user_id)
         assert user is not None
 
-        user = datastore.get_user('matt@lp.com')
+        user = datastore.get_user("matt@lp.com")
         assert user is not None
 
-        user = datastore.get_user('matt')
+        user = datastore.get_user("matt")
         assert user is not None
 
         # Regression check
-        user = datastore.get_user('%lp.com')
+        user = datastore.get_user("%lp.com")
         assert user is None
 
 
@@ -107,10 +107,10 @@ def test_find_role(app, datastore):
     init_app_with_options(app, datastore)
 
     with app.app_context():
-        role = datastore.find_role('admin')
+        role = datastore.find_role("admin")
         assert role is not None
 
-        role = datastore.find_role('bogus')
+        role = datastore.find_role("bogus")
         assert role is None
 
 
@@ -119,44 +119,45 @@ def test_add_role_to_user(app, datastore):
 
     with app.app_context():
         # Test with user object
-        user = datastore.find_user(email='matt@lp.com')
-        assert user.has_role('editor') is False
-        assert datastore.add_role_to_user(user, 'editor') is True
-        assert datastore.add_role_to_user(user, 'editor') is False
-        assert user.has_role('editor') is True
+        user = datastore.find_user(email="matt@lp.com")
+        assert user.has_role("editor") is False
+        assert datastore.add_role_to_user(user, "editor") is True
+        assert datastore.add_role_to_user(user, "editor") is False
+        assert user.has_role("editor") is True
 
         # Test with email
-        assert datastore.add_role_to_user('jill@lp.com', 'editor') is True
-        user = datastore.find_user(email='jill@lp.com')
-        assert user.has_role('editor') is True
+        assert datastore.add_role_to_user("jill@lp.com", "editor") is True
+        user = datastore.find_user(email="jill@lp.com")
+        assert user.has_role("editor") is True
 
         # Test remove role
-        assert datastore.remove_role_from_user(user, 'editor') is True
-        assert datastore.remove_role_from_user(user, 'editor') is False
+        assert datastore.remove_role_from_user(user, "editor") is True
+        assert datastore.remove_role_from_user(user, "editor") is False
 
 
 def test_create_user_with_roles(app, datastore):
     init_app_with_options(app, datastore)
 
     with app.app_context():
-        role = datastore.find_role('admin')
+        role = datastore.find_role("admin")
         datastore.commit()
 
-        user = datastore.create_user(email='dude@lp.com', username='dude',
-                                     password='password', roles=[role])
+        user = datastore.create_user(
+            email="dude@lp.com", username="dude", password="password", roles=[role]
+        )
         datastore.commit()
-        user = datastore.find_user(email='dude@lp.com')
-        assert user.has_role('admin') is True
+        user = datastore.find_user(email="dude@lp.com")
+        assert user.has_role("admin") is True
 
 
 def test_delete_user(app, datastore):
     init_app_with_options(app, datastore)
 
     with app.app_context():
-        user = datastore.find_user(email='matt@lp.com')
+        user = datastore.find_user(email="matt@lp.com")
         datastore.delete_user(user)
         datastore.commit()
-        user = datastore.find_user(email='matt@lp.com')
+        user = datastore.find_user(email="matt@lp.com")
         assert user is None
 
 

@@ -14,20 +14,34 @@ from flask_login import current_user, login_required
 from werkzeug.local import LocalProxy
 
 from .changeable import change_user_password
-from .confirmable import confirm_email_token_status, confirm_user, \
-    send_confirmation_instructions
+from .confirmable import (
+    confirm_email_token_status,
+    confirm_user,
+    send_confirmation_instructions,
+)
 from .decorators import anonymous_user_required
-from .recoverable import reset_password_token_status, \
-    send_reset_password_instructions, update_password
+from .recoverable import (
+    reset_password_token_status,
+    send_reset_password_instructions,
+    update_password,
+)
 from .registerable import register_user
-from .utils import config_value, do_flash, get_message, \
-    get_post_login_redirect, get_post_logout_redirect, \
-    get_post_register_redirect, get_url, login_user, logout_user, \
-    slash_url_suffix
+from .utils import (
+    config_value,
+    do_flash,
+    get_message,
+    get_post_login_redirect,
+    get_post_logout_redirect,
+    get_post_register_redirect,
+    get_url,
+    login_user,
+    logout_user,
+    slash_url_suffix,
+)
 from .utils import url_for_security as url_for
 
 # Convenient references
-_security = LocalProxy(lambda: current_app.extensions['security'])
+_security = LocalProxy(lambda: current_app.extensions["security"])
 
 _datastore = LocalProxy(lambda: _security.datastore)
 
@@ -55,9 +69,9 @@ def login():
 
         return redirect(get_post_login_redirect(form.next.data))
 
-    return _security.render_template(config_value('LOGIN_USER_TEMPLATE'),
-                                     login_user_form=form,
-                                     **_ctx('login'))
+    return _security.render_template(
+        config_value("LOGIN_USER_TEMPLATE"), login_user_form=form, **_ctx("login")
+    )
 
 
 def logout():
@@ -89,16 +103,18 @@ def register():
             login_user(user)
 
         if not request.is_json:
-            if 'next' in form:
+            if "next" in form:
                 redirect_url = get_post_register_redirect(form.next.data)
             else:
                 redirect_url = get_post_register_redirect()
 
             return redirect(redirect_url)
 
-    return _security.render_template(config_value('REGISTER_USER_TEMPLATE'),
-                                     register_user_form=form,
-                                     **_ctx('register'))
+    return _security.render_template(
+        config_value("REGISTER_USER_TEMPLATE"),
+        register_user_form=form,
+        **_ctx("register")
+    )
 
 
 def send_confirmation():
@@ -110,13 +126,12 @@ def send_confirmation():
 
     if form.validate_on_submit():
         send_confirmation_instructions(form.user)
-        do_flash(*get_message('CONFIRMATION_REQUEST',
-                 email=form.user.email))
+        do_flash(*get_message("CONFIRMATION_REQUEST", email=form.user.email))
 
     return _security.render_template(
-        config_value('SEND_CONFIRMATION_TEMPLATE'),
+        config_value("SEND_CONFIRMATION_TEMPLATE"),
         send_confirmation_form=form,
-        **_ctx('send_confirmation')
+        **_ctx("send_confirmation")
     )
 
 
@@ -127,17 +142,23 @@ def confirm_email(token):
 
     if not user or invalid:
         invalid = True
-        do_flash(*get_message('INVALID_CONFIRMATION_TOKEN'))
+        do_flash(*get_message("INVALID_CONFIRMATION_TOKEN"))
 
     already_confirmed = user is not None and user.confirmed_at is not None
 
     if expired and not already_confirmed:
         send_confirmation_instructions(user)
-        do_flash(*get_message('CONFIRMATION_EXPIRED', email=user.email,
-                              within=_security.confirm_email_within))
+        do_flash(
+            *get_message(
+                "CONFIRMATION_EXPIRED",
+                email=user.email,
+                within=_security.confirm_email_within,
+            )
+        )
     if invalid or (expired and not already_confirmed):
-        return redirect(get_url(_security.confirm_error_view) or
-                        url_for('send_confirmation'))
+        return redirect(
+            get_url(_security.confirm_error_view) or url_for("send_confirmation")
+        )
 
     if user != current_user:
         logout_user()
@@ -145,14 +166,15 @@ def confirm_email(token):
 
     if confirm_user(user):
         after_this_request(_commit)
-        msg = 'EMAIL_CONFIRMED'
+        msg = "EMAIL_CONFIRMED"
     else:
-        msg = 'ALREADY_CONFIRMED'
+        msg = "ALREADY_CONFIRMED"
 
     do_flash(*get_message(msg))
 
-    return redirect(get_url(_security.post_confirm_view) or
-                    get_url(_security.post_login_view))
+    return redirect(
+        get_url(_security.post_confirm_view) or get_url(_security.post_login_view)
+    )
 
 
 @anonymous_user_required
@@ -166,12 +188,13 @@ def forgot_password():
     if form.validate_on_submit():
         send_reset_password_instructions(form.user)
 
-        do_flash(*get_message('PASSWORD_RESET_REQUEST',
-                 email=form.user.email))
+        do_flash(*get_message("PASSWORD_RESET_REQUEST", email=form.user.email))
 
-    return _security.render_template(config_value('FORGOT_PASSWORD_TEMPLATE'),
-                                     forgot_password_form=form,
-                                     **_ctx('forgot_password'))
+    return _security.render_template(
+        config_value("FORGOT_PASSWORD_TEMPLATE"),
+        forgot_password_form=form,
+        **_ctx("forgot_password")
+    )
 
 
 @anonymous_user_required
@@ -182,14 +205,19 @@ def reset_password(token):
 
     if not user or invalid:
         invalid = True
-        do_flash(*get_message('INVALID_RESET_PASSWORD_TOKEN'))
+        do_flash(*get_message("INVALID_RESET_PASSWORD_TOKEN"))
 
     if expired:
         send_reset_password_instructions(user)
-        do_flash(*get_message('PASSWORD_RESET_EXPIRED', email=user.email,
-                              within=_security.reset_password_within))
+        do_flash(
+            *get_message(
+                "PASSWORD_RESET_EXPIRED",
+                email=user.email,
+                within=_security.reset_password_within,
+            )
+        )
     if invalid or expired:
-        return redirect(url_for('forgot_password'))
+        return redirect(url_for("forgot_password"))
 
     form = _security.reset_password_form()
     form.user = user
@@ -197,16 +225,17 @@ def reset_password(token):
     if form.validate_on_submit():
         after_this_request(_commit)
         update_password(user, form.password.data)
-        do_flash(*get_message('PASSWORD_RESET'))
+        do_flash(*get_message("PASSWORD_RESET"))
         login_user(user)
-        return redirect(get_url(_security.post_reset_view) or
-                        get_url(_security.post_login_view))
+        return redirect(
+            get_url(_security.post_reset_view) or get_url(_security.post_login_view)
+        )
 
     return _security.render_template(
-        config_value('RESET_PASSWORD_TEMPLATE'),
+        config_value("RESET_PASSWORD_TEMPLATE"),
         reset_password_form=form,
         reset_password_token=token,
-        **_ctx('reset_password')
+        **_ctx("reset_password")
     )
 
 
@@ -220,59 +249,62 @@ def change_password():
 
     if form.validate_on_submit():
         after_this_request(_commit)
-        change_user_password(current_user._get_current_object(),
-                             form.new_password.data)
-        do_flash(*get_message('PASSWORD_CHANGE'))
-        return redirect(get_url(_security.post_change_view) or
-                        get_url(_security.post_login_view))
+        change_user_password(current_user._get_current_object(), form.new_password.data)
+        do_flash(*get_message("PASSWORD_CHANGE"))
+        return redirect(
+            get_url(_security.post_change_view) or get_url(_security.post_login_view)
+        )
 
     return _security.render_template(
-        config_value('CHANGE_PASSWORD_TEMPLATE'),
+        config_value("CHANGE_PASSWORD_TEMPLATE"),
         change_password_form=form,
-        **_ctx('change_password')
+        **_ctx("change_password")
     )
 
 
 def create_blueprint(state, import_name):
     """Creates the security extension blueprint"""
 
-    bp = Blueprint(state.blueprint_name, import_name,
-                   url_prefix=state.url_prefix,
-                   subdomain=state.subdomain,
-                   template_folder='templates')
+    bp = Blueprint(
+        state.blueprint_name,
+        import_name,
+        url_prefix=state.url_prefix,
+        subdomain=state.subdomain,
+        template_folder="templates",
+    )
 
-    bp.route(state.logout_url, endpoint='logout')(logout)
+    bp.route(state.logout_url, endpoint="logout")(logout)
 
-    bp.route(state.login_url,
-                methods=['GET', 'POST'],
-                endpoint='login')(login)
+    bp.route(state.login_url, methods=["GET", "POST"], endpoint="login")(login)
 
     if state.registerable:
-        bp.route(state.register_url,
-                 methods=['GET', 'POST'],
-                 endpoint='register')(register)
+        bp.route(state.register_url, methods=["GET", "POST"], endpoint="register")(
+            register
+        )
 
     if state.recoverable:
-        bp.route(state.reset_url,
-                 methods=['GET', 'POST'],
-                 endpoint='forgot_password')(forgot_password)
-        bp.route(state.reset_url + slash_url_suffix(state.reset_url,
-                                                    '<token>'),
-                 methods=['GET', 'POST'],
-                 endpoint='reset_password')(reset_password)
+        bp.route(state.reset_url, methods=["GET", "POST"], endpoint="forgot_password")(
+            forgot_password
+        )
+        bp.route(
+            state.reset_url + slash_url_suffix(state.reset_url, "<token>"),
+            methods=["GET", "POST"],
+            endpoint="reset_password",
+        )(reset_password)
 
     if state.changeable:
-        bp.route(state.change_url,
-                 methods=['GET', 'POST'],
-                 endpoint='change_password')(change_password)
+        bp.route(state.change_url, methods=["GET", "POST"], endpoint="change_password")(
+            change_password
+        )
 
     if state.confirmable:
-        bp.route(state.confirm_url,
-                 methods=['GET', 'POST'],
-                 endpoint='send_confirmation')(send_confirmation)
-        bp.route(state.confirm_url + slash_url_suffix(state.confirm_url,
-                                                      '<token>'),
-                 methods=['GET', 'POST'],
-                 endpoint='confirm_email')(confirm_email)
+        bp.route(
+            state.confirm_url, methods=["GET", "POST"], endpoint="send_confirmation"
+        )(send_confirmation)
+        bp.route(
+            state.confirm_url + slash_url_suffix(state.confirm_url, "<token>"),
+            methods=["GET", "POST"],
+            endpoint="confirm_email",
+        )(confirm_email)
 
     return bp

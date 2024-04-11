@@ -20,10 +20,18 @@ from flask_mail import Mail
 from speaklater import is_lazy_string
 from utils import Response, populate_data
 
-from flask_security import RoleMixin, Security, \
-    SQLAlchemySessionUserDatastore, SQLAlchemyUserDatastore, UserMixin, \
-    auth_required, impersonate_user, login_required, roles_accepted, \
-    roles_required
+from flask_security import (
+    RoleMixin,
+    Security,
+    SQLAlchemySessionUserDatastore,
+    SQLAlchemyUserDatastore,
+    UserMixin,
+    auth_required,
+    impersonate_user,
+    login_required,
+    roles_accepted,
+    roles_required,
+)
 
 
 class JSONEncoder(BaseEncoder):
@@ -130,6 +138,7 @@ def app(request):
     @app.route("/impersonate/<user>", methods=["POST"])
     def impersonate(user):
         from flask import g
+
         user = current_app.security.datastore.get_user(user)
 
         impersonate_user(user, g.identity)
@@ -206,11 +215,17 @@ def sqlalchemy_datastore(request, app, tmpdir):
 
 @pytest.fixture()
 def sqlalchemy_session_datastore(request, app, tmpdir):
-    from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, \
-        String, create_engine
+    from sqlalchemy import (
+        Boolean,
+        Column,
+        DateTime,
+        ForeignKey,
+        Integer,
+        String,
+        create_engine,
+    )
     from sqlalchemy.ext.declarative import declarative_base
-    from sqlalchemy.orm import backref, relationship, scoped_session, \
-        sessionmaker
+    from sqlalchemy.orm import backref, relationship, scoped_session, sessionmaker
 
     f, path = tempfile.mkstemp(
         prefix="flask-security-test-db", suffix=".db", dir=str(tmpdir)

@@ -20,7 +20,7 @@ from werkzeug.routing import BuildError
 from . import utils
 
 # Convenient references
-_security = LocalProxy(lambda: current_app.extensions['security'])
+_security = LocalProxy(lambda: current_app.extensions["security"])
 
 
 _default_unauthorized_html = """
@@ -39,7 +39,7 @@ def _get_unauthorized_response(text=None, headers=None):
 
 
 def _get_unauthorized_view():
-    view = utils.get_url(utils.config_value('UNAUTHORIZED_VIEW'))
+    view = utils.get_url(utils.config_value("UNAUTHORIZED_VIEW"))
     if view:
         if callable(view):
             view = view()
@@ -48,10 +48,11 @@ def _get_unauthorized_view():
                 view = url_for(view)
             except BuildError:
                 view = None
-        utils.do_flash(*utils.get_message('UNAUTHORIZED'))
-        redirect_to = '/'
-        if (request.referrer and
-                not request.referrer.split('?')[0].endswith(request.path)):
+        utils.do_flash(*utils.get_message("UNAUTHORIZED"))
+        redirect_to = "/"
+        if request.referrer and not request.referrer.split("?")[0].endswith(
+            request.path
+        ):
             redirect_to = request.referrer
 
         return redirect(view or redirect_to)
@@ -70,16 +71,15 @@ def auth_required(*auth_methods):
 
     :param auth_methods: Specified mechanisms.
     """
-    login_mechanisms = {
-        'session': lambda: current_user.is_authenticated
-    }
+    login_mechanisms = {"session": lambda: current_user.is_authenticated}
 
     def wrapper(fn):
         @wraps(fn)
         def decorated_view(*args, **kwargs):
             h = {}
-            mechanisms = [(method, login_mechanisms.get(method))
-                          for method in auth_methods]
+            mechanisms = [
+                (method, login_mechanisms.get(method)) for method in auth_methods
+            ]
             for method, mechanism in mechanisms:
                 if mechanism and mechanism():
                     return fn(*args, **kwargs)
@@ -87,7 +87,9 @@ def auth_required(*auth_methods):
                 return _security._unauthorized_callback()
             else:
                 return _get_unauthorized_response(headers=h)
+
         return decorated_view
+
     return wrapper
 
 
@@ -105,6 +107,7 @@ def roles_required(*roles):
 
     :param args: The required roles.
     """
+
     def wrapper(fn):
         @wraps(fn)
         def decorated_view(*args, **kwargs):
@@ -116,7 +119,9 @@ def roles_required(*roles):
                     else:
                         return _get_unauthorized_view()
             return fn(*args, **kwargs)
+
         return decorated_view
+
     return wrapper
 
 
@@ -134,6 +139,7 @@ def roles_accepted(*roles):
 
     :param args: The possible roles.
     """
+
     def wrapper(fn):
         @wraps(fn)
         def decorated_view(*args, **kwargs):
@@ -144,7 +150,9 @@ def roles_accepted(*roles):
                 return _security._unauthorized_callback()
             else:
                 return _get_unauthorized_view()
+
         return decorated_view
+
     return wrapper
 
 
@@ -154,4 +162,5 @@ def anonymous_user_required(f):
         if current_user.is_authenticated:
             return redirect(utils.get_url(_security.post_login_view))
         return f(*args, **kwargs)
+
     return wrapper

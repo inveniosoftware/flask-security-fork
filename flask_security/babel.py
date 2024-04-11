@@ -9,7 +9,7 @@
 from flask_babel import Domain
 from wtforms.i18n import messages_path
 
-wtforms_domain = Domain(messages_path(), domain='wtforms')
+wtforms_domain = Domain(messages_path(), domain="wtforms")
 
 
 class Translations(object):
