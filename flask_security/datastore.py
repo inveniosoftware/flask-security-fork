@@ -201,9 +201,10 @@ class SQLAlchemyUserDatastore(SQLAlchemyDatastore, UserDatastore):
         for attr in get_identity_attributes():
             query = alchemyFn.lower(getattr(self.user_model, attr)) \
                 == alchemyFn.lower(identifier)
-            rv = self.user_model.query.filter(query).first()
-            if rv is not None:
-                return rv
+            with self.db.session.no_autoflush:
+                rv = self.user_model.query.filter(query).first()
+                if rv is not None:
+                    return rv
 
     def get_user_by_id(self, identifier):
         return self.user_model.query.get(identifier)
