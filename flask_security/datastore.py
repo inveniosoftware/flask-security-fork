@@ -190,7 +190,7 @@ class SQLAlchemyUserDatastore(SQLAlchemyDatastore, UserDatastore):
         from sqlalchemy import func as alchemyFn
 
         if self._is_numeric(identifier):
-            return self.user_model.query.get(identifier)
+            return self.db.session.get(self.user_model, identifier)
         for attr in get_identity_attributes():
             query = alchemyFn.lower(getattr(self.user_model, attr)) == alchemyFn.lower(
                 identifier
