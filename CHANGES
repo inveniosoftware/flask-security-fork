@@ -4,6 +4,17 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 3.4.0
+-------------
+
+Released November 19th 2024
+
+- i18n-global: add compile-catalog fuzzy
+- setup: remove flask upper pin
+- fix: LegacyAPIWarning
+- tests: move to reusable workflows
+
+
 Version 3.3.3
 -------------
 
