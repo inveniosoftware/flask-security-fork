@@ -43,10 +43,15 @@ Session.vim
 .netrwhist
 *~
 
-.eggs/README.txt
+.eggs/README.txt 
 
 # Idea
 .idea/
 
 # Mac
 .DS_Store
+
+.coverage.*
+
+.venv
+
