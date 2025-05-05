@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    test_recoverable
-    ~~~~~~~~~~~~~~~~
+test_recoverable
+~~~~~~~~~~~~~~~~
 
-    Recoverable functionality tests
+Recoverable functionality tests
 """
 
 import time

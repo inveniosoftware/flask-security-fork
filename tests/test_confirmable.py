@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    test_confirmable
-    ~~~~~~~~~~~~~~~~
+test_confirmable
+~~~~~~~~~~~~~~~~
 
-    Confirmable tests
+Confirmable tests
 """
 
 import time

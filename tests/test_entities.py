@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    test_entities
-    ~~~~~~~~~~~~~
+test_entities
+~~~~~~~~~~~~~
 
-    Entity tests
+Entity tests
 """
 
 from flask_security import AnonymousUser, RoleMixin, UserMixin

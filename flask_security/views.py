@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-    flask_security.views
-    ~~~~~~~~~~~~~~~~~~~~
+flask_security.views
+~~~~~~~~~~~~~~~~~~~~
 
-    Flask-Security views module
+Flask-Security views module
 
-    :copyright: (c) 2012 by Matt Wright.
-    :license: MIT, see LICENSE for more details.
+:copyright: (c) 2012 by Matt Wright.
+:license: MIT, see LICENSE for more details.
 """
 
 from flask import Blueprint, after_this_request, current_app, redirect, request

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    test_configuration
-    ~~~~~~~~~~~~~~~~~~
+test_configuration
+~~~~~~~~~~~~~~~~~~
 
-    Basic configuration tests
+Basic configuration tests
 """
 
 import pytest

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-    flask_security.datastore
-    ~~~~~~~~~~~~~~~~~~~~~~~~
+flask_security.datastore
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-    This module contains an user datastore classes.
+This module contains an user datastore classes.
 
-    :copyright: (c) 2012 by Matt Wright.
-    :license: MIT, see LICENSE for more details.
+:copyright: (c) 2012 by Matt Wright.
+:license: MIT, see LICENSE for more details.
 """
 import warnings
 

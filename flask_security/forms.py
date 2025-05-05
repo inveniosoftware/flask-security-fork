@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-    flask_security.forms
-    ~~~~~~~~~~~~~~~~~~~~
+flask_security.forms
+~~~~~~~~~~~~~~~~~~~~
 
-    Flask-Security forms module
+Flask-Security forms module
 
-    :copyright: (c) 2012 by Matt Wright.
-    :copyright: (c) 2017 by CERN.
-    :license: MIT, see LICENSE for more details.
+:copyright: (c) 2012 by Matt Wright.
+:copyright: (c) 2017 by CERN.
+:license: MIT, see LICENSE for more details.
 """
 
 import inspect

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-    conftest
-    ~~~~~~~~
+conftest
+~~~~~~~~
 
-    Test fixtures and what not
+Test fixtures and what not
 
-    :copyright: (c) 2017 by CERN.
-    :license: MIT, see LICENSE for more details.
+:copyright: (c) 2017 by CERN.
+:license: MIT, see LICENSE for more details.
 """
 
 import os

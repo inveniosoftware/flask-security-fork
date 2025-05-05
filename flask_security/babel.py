@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    flask_security.babel
-    ~~~~~~~~~~~~~~~~~~~~
+flask_security.babel
+~~~~~~~~~~~~~~~~~~~~
 
-    I18N support for Flask-Security.
+I18N support for Flask-Security.
 """
 
 from flask_babel import Domain

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-    flask_security.confirmable
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+flask_security.confirmable
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    Flask-Security confirmable module
+Flask-Security confirmable module
 
-    :copyright: (c) 2012 by Matt Wright.
-    :copyright: (c) 2017 by CERN.
-    :license: MIT, see LICENSE for more details.
+:copyright: (c) 2012 by Matt Wright.
+:copyright: (c) 2017 by CERN.
+:license: MIT, see LICENSE for more details.
 """
 
 from flask import current_app as app

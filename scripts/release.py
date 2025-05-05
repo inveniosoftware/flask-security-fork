@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-    make-release
-    ~~~~~~~~~~~~
+make-release
+~~~~~~~~~~~~
 
-    Helper script that performs a release.  Does pretty much everything
-    automatically for us.
+Helper script that performs a release.  Does pretty much everything
+automatically for us.
 
-    :copyright: (c) 2011 by Armin Ronacher.
-    :license: BSD, see LICENSE for more details.
+:copyright: (c) 2011 by Armin Ronacher.
+:license: BSD, see LICENSE for more details.
 """
 import os
 import re

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    test_common
-    ~~~~~~~~~~~
+test_common
+~~~~~~~~~~~
 
-    Test common functionality
+Test common functionality
 """
 
 from utils import authenticate, logout

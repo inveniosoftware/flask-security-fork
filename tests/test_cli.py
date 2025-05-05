@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    test_cli
-    ~~~~~~~~
+test_cli
+~~~~~~~~
 
-    Test command line interface.
+Test command line interface.
 """
 
 from flask_security.cli import (

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    utils
-    ~~~~~
+utils
+~~~~~
 
-    Test utils
+Test utils
 """
 
 from flask import Response as BaseResponse

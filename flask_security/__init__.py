@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-    flask_security
-    ~~~~~~~~~~~~~~
+flask_security
+~~~~~~~~~~~~~~
 
-    Flask-Security is a Flask extension that aims to add quick and simple
-    security via Flask-Login, Flask-Principal, Flask-WTF, and passlib.
+Flask-Security is a Flask extension that aims to add quick and simple
+security via Flask-Login, Flask-Principal, Flask-WTF, and passlib.
 
-    :copyright: (c) 2012 by Matt Wright.
-    :license: MIT, see LICENSE for more details.
+:copyright: (c) 2012 by Matt Wright.
+:license: MIT, see LICENSE for more details.
 """
 
 # Monkey patch Werkzeug 2.1

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-    flask_security.utils
-    ~~~~~~~~~~~~~~~~~~~~
+flask_security.utils
+~~~~~~~~~~~~~~~~~~~~
 
-    Flask-Security utils module
+Flask-Security utils module
 
-    :copyright: (c) 2012 by Matt Wright.
-    :license: MIT, see LICENSE for more details.
+:copyright: (c) 2012 by Matt Wright.
+:license: MIT, see LICENSE for more details.
 """
 
 import base64

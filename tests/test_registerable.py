@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    test_registerable
-    ~~~~~~~~~~~~~~~~~
+test_registerable
+~~~~~~~~~~~~~~~~~
 
-    Registerable tests
+Registerable tests
 """
 
 import pytest

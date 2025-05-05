@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    test_datastore
-    ~~~~~~~~~~~~~~
+test_datastore
+~~~~~~~~~~~~~~
 
-    Datastore tests
+Datastore tests
 """
 
 from pytest import raises

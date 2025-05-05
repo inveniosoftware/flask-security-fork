@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-    flask_security.core
-    ~~~~~~~~~~~~~~~~~~~
+flask_security.core
+~~~~~~~~~~~~~~~~~~~
 
-    Flask-Security core module
+Flask-Security core module
 
-    :copyright: (c) 2012 by Matt Wright.
-    :copyright: (c) 2017 by CERN.
-    :copyright: (c) 2017 by ETH Zurich, Swiss Data Science Center.
-    :license: MIT, see LICENSE for more details.
+:copyright: (c) 2012 by Matt Wright.
+:copyright: (c) 2017 by CERN.
+:copyright: (c) 2017 by ETH Zurich, Swiss Data Science Center.
+:license: MIT, see LICENSE for more details.
 """
 
 from datetime import datetime

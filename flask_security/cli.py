@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-    flask_security.cli
-    ~~~~~~~~~~~~~~~~~~
+flask_security.cli
+~~~~~~~~~~~~~~~~~~
 
-    Command Line Interface for managing accounts and roles.
+Command Line Interface for managing accounts and roles.
 
-    :copyright: (c) 2016 by CERN.
-    :license: MIT, see LICENSE for more details.
+:copyright: (c) 2016 by CERN.
+:license: MIT, see LICENSE for more details.
 """
 
 from functools import wraps

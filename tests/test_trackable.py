@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    test_trackable
-    ~~~~~~~~~~~~~~
+test_trackable
+~~~~~~~~~~~~~~
 
-    Trackable tests
+Trackable tests
 """
 
 import pytest

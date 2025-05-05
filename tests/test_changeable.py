@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    test_changeable
-    ~~~~~~~~~~~~~~~
+test_changeable
+~~~~~~~~~~~~~~~
 
-    Changeable tests
+Changeable tests
 """
 
 import pytest

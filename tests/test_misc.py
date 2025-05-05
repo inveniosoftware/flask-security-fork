@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    test_emails
-    ~~~~~~~~~~~
+test_emails
+~~~~~~~~~~~
 
-    Email functionality tests
+Email functionality tests
 """
 
 import hashlib

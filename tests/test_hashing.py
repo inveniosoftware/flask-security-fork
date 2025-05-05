@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    test_hashing
-    ~~~~~~~~~~~~
+test_hashing
+~~~~~~~~~~~~
 
-    hashing tests
+hashing tests
 """
 
 from pytest import raises

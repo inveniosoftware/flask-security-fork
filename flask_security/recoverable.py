@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-    flask_security.recoverable
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+flask_security.recoverable
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    Flask-Security recoverable module
+Flask-Security recoverable module
 
-    :copyright: (c) 2012 by Matt Wright.
-    :license: MIT, see LICENSE for more details.
+:copyright: (c) 2012 by Matt Wright.
+:license: MIT, see LICENSE for more details.
 """
 
 from flask import current_app as app

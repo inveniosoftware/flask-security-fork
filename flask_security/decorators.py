@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-    flask_security.decorators
-    ~~~~~~~~~~~~~~~~~~~~~~~~~
+flask_security.decorators
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    Flask-Security decorators module
+Flask-Security decorators module
 
-    :copyright: (c) 2012 by Matt Wright.
-    :license: MIT, see LICENSE for more details.
+:copyright: (c) 2012 by Matt Wright.
+:license: MIT, see LICENSE for more details.
 """
 
 from functools import wraps
