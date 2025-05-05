@@ -25,3 +25,4 @@ recursive-include flask_security/templates *.*
 recursive-include flask_security/translations *.po *.pot *.mo
 recursive-include tests *
 include .git-blame-ignore-revs
+include .tx/config
