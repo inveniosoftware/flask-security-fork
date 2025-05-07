@@ -4,6 +4,23 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 3.5.0
+-------------
+
+Released May 07th 2025
+
+- i18n: pulled arabic translations
+- update copyrights
+- chore: remove obsolete release script
+- i18n: update translations template for Flask-Security-Invenio
+- i18n: add workflows for pulling and pushing
+- chore: include Transifex configuration in MANIFEST.in
+- i18n: update babel.ini
+- i18n: add Transifex configuration
+- fix: standardize configuration keys in setup.cfg
+- chore: auto format with black
+
+
 Version 3.4.0
 -------------
 
