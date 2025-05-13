@@ -5,10 +5,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 # 
 # Translators:
-# Mattias Vesterlund, 2025
 # Rim Sharif, 2025
 # Sam Arbid, 2025
 # Tibor Simko <tibor.simko@cern.ch>, 2025
+# Mattias Vesterlund, 2025
+# Lina Andrén, 2025
 # 
 #, fuzzy
 msgid ""
@@ -17,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: info@inveniosoftware.org\n"
 "POT-Creation-Date: 2025-05-07 11:05+0000\n"
 "PO-Revision-Date: 2025-05-07 11:05+0000\n"
-"Last-Translator: Tibor Simko <tibor.simko@cern.ch>, 2025\n"
+"Last-Translator: Lina Andrén, 2025\n"
 "Language-Team: Swedish (https://app.transifex.com/inveniosoftware/teams/23537/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,71 +29,72 @@ msgstr ""
 
 #: flask_security/core.py:102
 msgid "Login Required"
-msgstr ""
+msgstr "Inloggning krävs."
 
 #: flask_security/core.py:103
 msgid "Welcome"
-msgstr ""
+msgstr "Välkommen"
 
 #: flask_security/core.py:104
 msgid "Please confirm your email"
-msgstr ""
+msgstr "Bekräfta din e-postadress"
 
 #: flask_security/core.py:105
 #: flask_security/templates/security/email/reset_notice.html:1
 msgid "Your password has been reset"
-msgstr ""
+msgstr "Ditt lösenord har återställts"
 
 #: flask_security/core.py:106
 msgid "Your password has been changed"
-msgstr ""
+msgstr "Ditt lösenord har ändrats."
 
 #: flask_security/core.py:107
 msgid "Password reset instructions"
-msgstr ""
+msgstr "Instruktioner för att återställa lösenord."
 
 #: flask_security/core.py:132
 msgid "You do not have permission to view this resource."
-msgstr ""
+msgstr "Du har inte rättigheter för att visa denna resurs."
 
 #: flask_security/core.py:134
 #, python-format
 msgid "Thank you. Confirmation instructions have been sent to %(email)s."
-msgstr ""
+msgstr "Tack! Instruktioner för hur du bekräftar har skickats till %(email)s."
 
 #: flask_security/core.py:137
 msgid "Thank you. Your email has been confirmed."
-msgstr ""
+msgstr "Tack! Din e-postadress är bekräftad."
 
 #: flask_security/core.py:138
 msgid "Your email has already been confirmed."
-msgstr ""
+msgstr "Din e-postadress var redan bekräftad."
 
 #: flask_security/core.py:139
 msgid "Invalid confirmation token."
-msgstr ""
+msgstr "Ogiltig bekräftelsetoken."
 
 #: flask_security/core.py:141
 #, python-format
 msgid "%(email)s is already associated with an account."
-msgstr ""
+msgstr "%(email)s är redan kopplad till ett konto."
 
 #: flask_security/core.py:144
 msgid "Password does not match"
-msgstr ""
+msgstr "Lösenordet stämmer inte."
 
 #: flask_security/core.py:145
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Lösenorden stämmer inte överens."
 
 #: flask_security/core.py:146
 msgid "Redirections outside the domain are forbidden"
-msgstr ""
+msgstr "Vidarekoppling utanför domänen tillåts inte."
 
 #: flask_security/core.py:148
 #, python-format
 msgid "Instructions to reset your password have been sent to %(email)s."
 msgstr ""
+"Instruktioner för att återställa ditt lösenord har skickats till %(email)s."
 
 #: flask_security/core.py:153
 #, python-format
@@ -100,19 +102,21 @@ msgid ""
 "You did not reset your password within %(within)s. New instructions have "
 "been sent to %(email)s."
 msgstr ""
+"Du återställde inte ditt lösenord inom %(within)s. Nya instruktioner har "
+"skickats till %(email)s."
 
 #: flask_security/core.py:158
 msgid "Invalid reset password token."
-msgstr ""
+msgstr "Ogiltig token för att återställa lösenord."
 
 #: flask_security/core.py:159
 msgid "Email requires confirmation."
-msgstr ""
+msgstr "E-post kräver bekräftad adress."
 
 #: flask_security/core.py:161
 #, python-format
 msgid "Confirmation instructions have been sent to %(email)s."
-msgstr ""
+msgstr "Instruktioner för att bekräfta. har skickats till %(email)s."
 
 #: flask_security/core.py:166
 #, python-format
@@ -120,6 +124,8 @@ msgid ""
 "You did not confirm your email within %(within)s. New instructions to "
 "confirm your email have been sent to %(email)s."
 msgstr ""
+"Du bekräftade inte din e-postadress inom %(within)s. Nya instruktioner för "
+"att bekräfta din e-postadress har skickats til %(email)s."
 
 #: flask_security/core.py:174
 #, python-format
@@ -127,47 +133,49 @@ msgid ""
 "You did not login within %(within)s. New instructions to login have been "
 "sent to %(email)s."
 msgstr ""
+"Du loggade inte in inom %(within)s. Nya instruktioner för inloggning har "
+"skickats till %(email)s."
 
 #: flask_security/core.py:180
 #, python-format
 msgid "Instructions to login have been sent to %(email)s."
-msgstr ""
+msgstr "Instruktioner för inloggning har skickats till %(email)s."
 
 #: flask_security/core.py:183
 msgid "Invalid login token."
-msgstr ""
+msgstr "Ogiltig inloggningstoken."
 
 #: flask_security/core.py:184
 msgid "Account is disabled."
-msgstr ""
+msgstr "Kontot har avaktiverats."
 
 #: flask_security/core.py:185
 msgid "Email not provided"
-msgstr ""
+msgstr "E-post har inte angivits."
 
 #: flask_security/core.py:186
 msgid "Invalid email address"
-msgstr ""
+msgstr "Ogiltig e-postadress."
 
 #: flask_security/core.py:187
 msgid "Password not provided"
-msgstr ""
+msgstr "Lösenord har inte angivits."
 
 #: flask_security/core.py:188
 msgid "No password is set for this user"
-msgstr ""
+msgstr "Denna användare har inte angett något lösenord."
 
 #: flask_security/core.py:189
 msgid "Password must be at least 6 characters"
-msgstr ""
+msgstr "Lösenordet måste ha minst 6 tecken."
 
 #: flask_security/core.py:190
 msgid "Specified user does not exist"
-msgstr ""
+msgstr "Den angivna användaren existerar inte."
 
 #: flask_security/core.py:191
 msgid "Invalid password"
-msgstr ""
+msgstr "Ogiltigt lösenord."
 
 #: flask_security/core.py:192
 msgid "Forgot password?"
@@ -177,27 +185,27 @@ msgstr "Glömt ditt lösenord?"
 msgid ""
 "You successfully reset your password and you have been logged in "
 "automatically."
-msgstr ""
+msgstr "Du har återställt ditt lösenord och loggats in automatiskt."
 
 #: flask_security/core.py:201
 msgid "Your new password must be different than your previous password."
-msgstr ""
+msgstr "Ditt nya lösenord måste vara annorlunda än ditt tidigare lösenord."
 
 #: flask_security/core.py:204
 msgid "You successfully changed your password."
-msgstr ""
+msgstr "Du har ändrat ditt lösenord."
 
 #: flask_security/core.py:205
 msgid "Please log in to access this page."
-msgstr ""
+msgstr "Logga in för att komma åt denna sida."
 
 #: flask_security/core.py:206
 msgid "Please reauthenticate to access this page."
-msgstr ""
+msgstr "För att komma åt denna sida måste du ange lösenord igen."
 
 #: flask_security/forms.py:45
 msgid "Email Address"
-msgstr ""
+msgstr "E-postadress"
 
 #: flask_security/forms.py:46
 msgid "Password"
@@ -215,11 +223,11 @@ msgstr "Registrera"
 
 #: flask_security/forms.py:49
 msgid "Resend Confirmation Instructions"
-msgstr ""
+msgstr "Skicka instruktioner för att bekräfta igen."
 
 #: flask_security/forms.py:50
 msgid "Recover Password"
-msgstr ""
+msgstr "Återställ lösenord."
 
 #: flask_security/forms.py:51
 msgid "Reset Password"
@@ -231,7 +239,7 @@ msgstr "Skriv lösenordet igen"
 
 #: flask_security/forms.py:53
 msgid "New Password"
-msgstr ""
+msgstr "Nytt lösenord."
 
 #: flask_security/forms.py:54
 msgid "Change Password"
@@ -243,11 +251,11 @@ msgstr "Meny"
 
 #: flask_security/templates/security/_menu.html:9
 msgid "Forgot password"
-msgstr ""
+msgstr "Glömt lösenord"
 
 #: flask_security/templates/security/_menu.html:12
 msgid "Confirm account"
-msgstr ""
+msgstr "Bekräfta konto."
 
 #: flask_security/templates/security/change_password.html:3
 msgid "Change password"
@@ -255,7 +263,7 @@ msgstr "Ändra lösenord"
 
 #: flask_security/templates/security/forgot_password.html:3
 msgid "Send password reset instructions"
-msgstr ""
+msgstr "Skicka instruktioner för att återställa lösenord."
 
 #: flask_security/templates/security/reset_password.html:3
 msgid "Reset password"
@@ -263,7 +271,7 @@ msgstr "Återställ lösenord"
 
 #: flask_security/templates/security/send_confirmation.html:3
 msgid "Resend confirmation instructions"
-msgstr ""
+msgstr "Skicka instruktioner för att bekräfta igen."
 
 #: flask_security/templates/security/email/change_notice.html:1
 msgid "Your password has been changed."
@@ -275,26 +283,26 @@ msgstr "Om du inte ändrade ditt lösenord,"
 
 #: flask_security/templates/security/email/change_notice.html:3
 msgid "click here to reset it"
-msgstr "klicka här för att återställa den"
+msgstr "Klicka här för att återställa."
 
 #: flask_security/templates/security/email/confirmation_instructions.html:1
 msgid "Please confirm your email through the link below:"
-msgstr ""
+msgstr "Bekräfta din e-postadress med hjälp av länken nedan, tack."
 
 #: flask_security/templates/security/email/confirmation_instructions.html:3
 #: flask_security/templates/security/email/welcome.html:6
 msgid "Confirm my account"
-msgstr ""
+msgstr "Bekräfta mitt konto."
 
 #: flask_security/templates/security/email/reset_instructions.html:1
 msgid "Click here to reset your password"
-msgstr ""
+msgstr "Klicka här för att återställa ditt lösenord."
 
 #: flask_security/templates/security/email/welcome.html:1
 #, python-format
 msgid "Welcome %(email)s!"
-msgstr ""
+msgstr "Välkommen %(email)s!"
 
 #: flask_security/templates/security/email/welcome.html:4
 msgid "You can confirm your email through the link below:"
-msgstr ""
+msgstr "Du kan bekräfta din e-postadress med hjälp av länken nedan:"

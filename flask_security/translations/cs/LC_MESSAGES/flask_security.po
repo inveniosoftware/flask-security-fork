@@ -5,10 +5,10 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 # 
 # Translators:
-# Mirek Simek <miroslav.simek@gmail.com>, 2025
 # Jiří Kunčar <jiri.kuncar@gmail.com>, 2025
 # Tibor Simko <tibor.simko@cern.ch>, 2025
 # daniela.hornickova, 2025
+# Mirek Simek <miroslav.simek@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -17,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: info@inveniosoftware.org\n"
 "POT-Creation-Date: 2025-05-07 11:05+0000\n"
 "PO-Revision-Date: 2025-05-07 11:05+0000\n"
-"Last-Translator: daniela.hornickova, 2025\n"
+"Last-Translator: Mirek Simek <miroslav.simek@gmail.com>, 2025\n"
 "Language-Team: Czech (https://app.transifex.com/inveniosoftware/teams/23537/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -92,7 +92,7 @@ msgstr "Přesměrování vně domény jsou zakázána"
 #: flask_security/core.py:148
 #, python-format
 msgid "Instructions to reset your password have been sent to %(email)s."
-msgstr ""
+msgstr "Pokyny k resetování Vašeho hesla byly zaslány na %(email)s ."
 
 #: flask_security/core.py:153
 #, python-format
@@ -100,19 +100,21 @@ msgid ""
 "You did not reset your password within %(within)s. New instructions have "
 "been sent to %(email)s."
 msgstr ""
+"Do %(within)s jste neresetoval(a) heslo. Nové pokyny byly zaslány na "
+"%(email)s ."
 
 #: flask_security/core.py:158
 msgid "Invalid reset password token."
-msgstr ""
+msgstr "Neplatný token pro resetování hesla."
 
 #: flask_security/core.py:159
 msgid "Email requires confirmation."
-msgstr ""
+msgstr "Je vyžadováno potvrzení e-mailu."
 
 #: flask_security/core.py:161
 #, python-format
 msgid "Confirmation instructions have been sent to %(email)s."
-msgstr ""
+msgstr "Pokyny pro potvrzení byly zaslány na %(email)s ."
 
 #: flask_security/core.py:166
 #, python-format
@@ -120,6 +122,8 @@ msgid ""
 "You did not confirm your email within %(within)s. New instructions to "
 "confirm your email have been sent to %(email)s."
 msgstr ""
+"Do %(within)s jste nepotvrdil(a) e-mail. Nové pokyny pro potvrzení e-mailu "
+"byly zaslány na %(email)s ."
 
 #: flask_security/core.py:174
 #, python-format
@@ -127,47 +131,49 @@ msgid ""
 "You did not login within %(within)s. New instructions to login have been "
 "sent to %(email)s."
 msgstr ""
+"Do %(within)s jste se nepřihlásil(a). Nové pokyny byly zaslány na %(email)s "
+"."
 
 #: flask_security/core.py:180
 #, python-format
 msgid "Instructions to login have been sent to %(email)s."
-msgstr ""
+msgstr "Pokyny pro přihlášení byly zaslány na %(email)s ."
 
 #: flask_security/core.py:183
 msgid "Invalid login token."
-msgstr ""
+msgstr "Neplatný token pro přihlášení."
 
 #: flask_security/core.py:184
 msgid "Account is disabled."
-msgstr ""
+msgstr "Účet je zakázán."
 
 #: flask_security/core.py:185
 msgid "Email not provided"
-msgstr ""
+msgstr "E-mail nezadán"
 
 #: flask_security/core.py:186
 msgid "Invalid email address"
-msgstr ""
+msgstr "Neplatná e-mailová adresa"
 
 #: flask_security/core.py:187
 msgid "Password not provided"
-msgstr ""
+msgstr "Heslo nezadáno"
 
 #: flask_security/core.py:188
 msgid "No password is set for this user"
-msgstr ""
+msgstr "Pro daného uživatele nebylo nastaveno heslo"
 
 #: flask_security/core.py:189
 msgid "Password must be at least 6 characters"
-msgstr ""
+msgstr "Heslo musí mít alespoň 6 znaků"
 
 #: flask_security/core.py:190
 msgid "Specified user does not exist"
-msgstr ""
+msgstr "Uvedený uživatel neexistuje"
 
 #: flask_security/core.py:191
 msgid "Invalid password"
-msgstr ""
+msgstr "Neplatné heslo"
 
 #: flask_security/core.py:192
 msgid "Forgot password?"
@@ -178,26 +184,27 @@ msgid ""
 "You successfully reset your password and you have been logged in "
 "automatically."
 msgstr ""
+"Úspěšně jste restoval(a) heslo a byl(a) jste automaticky přihlášen(a)."
 
 #: flask_security/core.py:201
 msgid "Your new password must be different than your previous password."
-msgstr ""
+msgstr "Vaše nové heslo musí být jiné než předchozí."
 
 #: flask_security/core.py:204
 msgid "You successfully changed your password."
-msgstr ""
+msgstr "Úspěšně jste změnil(a) heslo."
 
 #: flask_security/core.py:205
 msgid "Please log in to access this page."
-msgstr ""
+msgstr "Pro přístup na tuto stránku se prosím přihlašte."
 
 #: flask_security/core.py:206
 msgid "Please reauthenticate to access this page."
-msgstr ""
+msgstr "Pro přístup na stránku se prosím znovu autentizujte."
 
 #: flask_security/forms.py:45
 msgid "Email Address"
-msgstr ""
+msgstr "E-mailová adresa"
 
 #: flask_security/forms.py:46
 msgid "Password"
@@ -215,23 +222,23 @@ msgstr "Registrovat"
 
 #: flask_security/forms.py:49
 msgid "Resend Confirmation Instructions"
-msgstr ""
+msgstr "Znovu zaslat pokyny pro potvrzení"
 
 #: flask_security/forms.py:50
 msgid "Recover Password"
-msgstr ""
+msgstr "Obnovit heslo"
 
 #: flask_security/forms.py:51
 msgid "Reset Password"
-msgstr "Obnovit heslo"
+msgstr "Resetovat heslo"
 
 #: flask_security/forms.py:52
 msgid "Retype Password"
-msgstr "Heslo znovu"
+msgstr "Napište znovu heslo"
 
 #: flask_security/forms.py:53
 msgid "New Password"
-msgstr ""
+msgstr "Nové heslo"
 
 #: flask_security/forms.py:54
 msgid "Change Password"
@@ -243,11 +250,11 @@ msgstr "Menu"
 
 #: flask_security/templates/security/_menu.html:9
 msgid "Forgot password"
-msgstr ""
+msgstr "Zapomenuté heslo"
 
 #: flask_security/templates/security/_menu.html:12
 msgid "Confirm account"
-msgstr ""
+msgstr "Potvrdit účet"
 
 #: flask_security/templates/security/change_password.html:3
 msgid "Change password"
@@ -255,15 +262,15 @@ msgstr "Změnit heslo"
 
 #: flask_security/templates/security/forgot_password.html:3
 msgid "Send password reset instructions"
-msgstr ""
+msgstr "Zaslat pokyny pro resetování hesla"
 
 #: flask_security/templates/security/reset_password.html:3
 msgid "Reset password"
-msgstr "Obnovit heslo"
+msgstr "Resetovat heslo"
 
 #: flask_security/templates/security/send_confirmation.html:3
 msgid "Resend confirmation instructions"
-msgstr ""
+msgstr "Znovu zaslat pokyny pro potvrzení"
 
 #: flask_security/templates/security/email/change_notice.html:1
 msgid "Your password has been changed."
@@ -275,26 +282,26 @@ msgstr "Pokud jste nezměnili své heslo,"
 
 #: flask_security/templates/security/email/change_notice.html:3
 msgid "click here to reset it"
-msgstr ""
+msgstr "pro resetování klikněte zde"
 
 #: flask_security/templates/security/email/confirmation_instructions.html:1
 msgid "Please confirm your email through the link below:"
-msgstr ""
+msgstr "Potvrďte prosím Váš e-mail přes odkaz uvedený níže:"
 
 #: flask_security/templates/security/email/confirmation_instructions.html:3
 #: flask_security/templates/security/email/welcome.html:6
 msgid "Confirm my account"
-msgstr ""
+msgstr "Potvrdit můj účet"
 
 #: flask_security/templates/security/email/reset_instructions.html:1
 msgid "Click here to reset your password"
-msgstr ""
+msgstr "Pro resetování hesla klikněte sem"
 
 #: flask_security/templates/security/email/welcome.html:1
 #, python-format
 msgid "Welcome %(email)s!"
-msgstr ""
+msgstr "Vítejte %(email)s !"
 
 #: flask_security/templates/security/email/welcome.html:4
 msgid "You can confirm your email through the link below:"
-msgstr ""
+msgstr "Svůj e-mail můžete potvrdit přes odkaz uvedený níže:"
