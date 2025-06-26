@@ -8,12 +8,13 @@ Flask-Security core module
 :copyright: (c) 2012 by Matt Wright.
 :copyright: (c) 2017 by CERN.
 :copyright: (c) 2017 by ETH Zurich, Swiss Data Science Center.
+:copyright: (c) 2025 by Graz University of Technology.
 :license: MIT, see LICENSE for more details.
 """
 
 from datetime import datetime
+from importlib.resources import files
 
-import pkg_resources
 from flask import current_app, render_template
 from flask_babel import Domain
 from flask_login import AnonymousUserMixin, LoginManager
@@ -52,7 +53,7 @@ _default_config = {
     "SUBDOMAIN": None,
     "FLASH_MESSAGES": True,
     "I18N_DOMAIN": "flask_security",
-    "I18N_DIRNAME": pkg_resources.resource_filename("flask_security", "translations"),
+    "I18N_DIRNAME": str(files("flask_security") / "translations"),
     "PASSWORD_HASH": "bcrypt",
     "PASSWORD_SALT": None,
     "PASSWORD_SINGLE_HASH": False,
