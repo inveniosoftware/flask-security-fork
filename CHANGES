@@ -4,6 +4,12 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 3.6.0
+
+Released July 1th 2025
+
+- fix: pkg_resources DeprecationWarning
+
 Version 3.5.1
 -------------
 
