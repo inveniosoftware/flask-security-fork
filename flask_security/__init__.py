@@ -49,7 +49,7 @@ from .signals import (
 )
 from .utils import impersonate_user, login_user, logout_user, url_for_security
 
-__version__ = "3.6.0"
+__version__ = "3.7.0"
 __all__ = (
     "AnonymousUser",
     "auth_required",
