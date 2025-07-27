@@ -12,7 +12,7 @@ Flask-Security core module
 :license: MIT, see LICENSE for more details.
 """
 
-from datetime import datetime
+from datetime import datetime, timezone
 from importlib.resources import files
 
 from flask import current_app, render_template
@@ -136,7 +136,7 @@ _default_config = {
         "hex_md5",
     ],
     "DEPRECATED_HASHING_SCHEMES": ["hex_md5"],
-    "DATETIME_FACTORY": datetime.utcnow,
+    "DATETIME_FACTORY": lambda: datetime.now(timezone.utc),
     "ZXCVBN_MINIMUM_SCORE": 3,
 }
 
