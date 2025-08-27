@@ -47,7 +47,16 @@ from .signals import (
     user_confirmed,
     user_registered,
 )
-from .utils import impersonate_user, login_user, logout_user, url_for_security
+from .utils import (
+    impersonate_user,
+    login_user,
+    logout_user,
+    password_breached_validator,
+    password_complexity_validator,
+    password_length_validator,
+    pwned,
+    url_for_security,
+)
 
 __version__ = "3.7.0"
 __all__ = (

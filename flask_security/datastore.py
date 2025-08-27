@@ -153,7 +153,28 @@ class UserDatastore(object):
         return self.find_role(name) or self.create_role(**kwargs)
 
     def create_user(self, **kwargs):
-        """Creates and returns a new user from the given parameters."""
+        """Creates and returns a new user from the given parameters.
+
+        :kwparam email: required.
+        :kwparam password:  Hashed password.
+        :kwparam roles: list of roles to be added to user.
+            Can be Role objects or strings
+
+        .. danger::
+           Be aware that whatever `password` is passed in will
+           be stored directly in the DB. Do NOT pass in a plaintext password!
+           Best practice is to pass in ``hash_password(plaintext_password)``.
+
+        The new user's ``active`` property will be set to true.
+        Furthermore, no validation is done on the password (e.g for minimum length).
+        Best practice is to call
+        ``app.security._password_validator(plaintext_password, True)``
+        and look for a ``None`` return meaning the password conforms to the
+        configured validations.
+
+        The new user's ``active`` property will be set to ``True``
+        unless explicitly set to ``False`` in `kwargs`.
+        """
         kwargs = self._prepare_create_user_args(**kwargs)
         user = self.user_model(**kwargs)
         return self.put(user)
