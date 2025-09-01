@@ -28,10 +28,10 @@ from wtforms import (
 )
 
 from .confirmable import requires_confirmation
-from .proxies import _security
 from .utils import (
     _,
     _datastore,
+    _security,
     get_message,
     hash_password,
     localize_callback,
