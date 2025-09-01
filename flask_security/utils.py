@@ -514,7 +514,7 @@ def password_length_validator(password):
     :return: ``None`` if password conforms to length requirements,
      a list of error/suggestions if not.
 
-    .. versionadded:: 3.4.0
+    .. versionadded:: 3.8.0
 
     """
     if len(password) < config_value("PASSWORD_LENGTH_MIN") or len(password) > 128:
