@@ -173,6 +173,8 @@ def test_easy_password(app, client):
     response = client.post(
         "/change", data=data, headers={"Content-Type": "application/json"}
     )
+    # NOTE: upstream has changed content type and response codes. This is left here as
+    # reminder for future integrations.
     # assert response.headers["Content-Type"] == "application/json"
     # assert response.status_code == 400
     # Response from zxcvbn
@@ -194,6 +196,8 @@ def test_my_validator(app, client):
     response = client.post(
         "/change", data=data, headers={"Content-Type": "application/json"}
     )
+    # NOTE: upstream has changed content type and response codes. This is left here as
+    # reminder for future integrations.
     # assert response.headers["Content-Type"] == "application/json"
     # assert response.status_code == 400
     assert b"Are you crazy" in response.data
@@ -231,6 +235,8 @@ def test_unicode_length(app, client, get_message):
     response = client.post(
         "/change", data=json.dumps(data), headers={"Content-Type": "application/json"}
     )
+    # NOTE: upstream has changed content type and response codes. This is left here as
+    # reminder for future integrations.
     # assert response.headers["Content-Type"] == "application/json"
     # assert response.status_code == 200
     assert response.status_code == 302
@@ -249,6 +255,8 @@ def test_unicode_invalid_length(app, client, get_message):
     response = client.post(
         "/change", data=json.dumps(data), headers={"Content-Type": "application/json"}
     )
+    # NOTE: upstream has changed content type and response codes. This is left here as
+    # reminder for future integrations.
     # assert response.headers["Content-Type"] == "application/json"
     # assert response.status_code == 400
     assert get_message("PASSWORD_INVALID_LENGTH", length=6) in response.data
