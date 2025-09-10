@@ -62,6 +62,14 @@ Utils
 
 .. autofunction:: flask_security.utils.send_mail
 
+.. autofunction:: flask_security.password_length_validator
+
+.. autofunction:: flask_security.password_complexity_validator
+
+.. autofunction:: flask_security.password_breached_validator
+
+.. autofunction:: flask_security.pwned
+
 Signals
 -------
 See the `Flask documentation on signals`_ for information on how to use these

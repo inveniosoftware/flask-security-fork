@@ -35,9 +35,16 @@ from .forms import (
     ResetPasswordForm,
     SendConfirmationForm,
 )
-from .utils import _
+from .utils import (
+    _,
+)
 from .utils import config_value as cv
-from .utils import get_config, localize_callback, url_for_security
+from .utils import (
+    default_password_validator,
+    get_config,
+    localize_callback,
+    url_for_security,
+)
 from .views import create_blueprint
 
 # Convenient references
@@ -119,6 +126,10 @@ _default_config = {
         # And always last one...
         "plaintext",
     ],
+    "PASSWORD_LENGTH_MIN": 6,
+    "PASSWORD_COMPLEXITY_CHECKER": None,
+    "PASSWORD_CHECK_BREACHED": False,
+    "PASSWORD_BREACHED_COUNT": 1,
     "DEPRECATED_PASSWORD_SCHEMES": ["auto"],
     "HASHING_SCHEMES": [
         "sha256_crypt",
@@ -126,13 +137,14 @@ _default_config = {
     ],
     "DEPRECATED_HASHING_SCHEMES": ["hex_md5"],
     "DATETIME_FACTORY": datetime.utcnow,
+    "ZXCVBN_MINIMUM_SCORE": 3,
 }
 
 #: Default Flask-Security messages
 _default_messages = {
     "UNAUTHORIZED": (_("You do not have permission to view this resource."), "error"),
     "CONFIRM_REGISTRATION": (
-        _("Thank you. Confirmation instructions " "have been sent to %(email)s."),
+        _("Thank you. Confirmation instructions have been sent to %(email)s."),
         "success",
     ),
     "EMAIL_CONFIRMED": (_("Thank you. Your email has been confirmed."), "success"),
@@ -187,7 +199,16 @@ _default_messages = {
     "INVALID_EMAIL_ADDRESS": (_("Invalid email address"), "error"),
     "PASSWORD_NOT_PROVIDED": (_("Password not provided"), "error"),
     "PASSWORD_NOT_SET": (_("No password is set for this user"), "error"),
-    "PASSWORD_INVALID_LENGTH": (_("Password must be at least 6 characters"), "error"),
+    "PASSWORD_INVALID_LENGTH": (
+        _("Password must be at least %(length)s characters"),
+        "error",
+    ),
+    "PASSWORD_TOO_SIMPLE": (_("Password not complex enough"), "error"),
+    "PASSWORD_BREACHED": (_("Password on breached list"), "error"),
+    "PASSWORD_BREACHED_SITE_ERROR": (
+        _("Failed to contact breached passwords site"),
+        "error",
+    ),
     "USER_DOES_NOT_EXIST": (_("Specified user does not exist"), "error"),
     "INVALID_PASSWORD": (_("Invalid password"), "error"),
     "FORGOT_PASSWORD": (_("Forgot password?"), "info"),
@@ -315,6 +336,7 @@ def _get_state(app, datastore, anonymous_user=None, **kwargs):
             _context_processors={},
             _send_mail_task=None,
             _unauthorized_callback=None,
+            _password_validator=default_password_validator,
         )
     )
 
@@ -372,7 +394,6 @@ class AnonymousUser(AnonymousUserMixin):
 
 
 class _SecurityState(object):
-
     def __init__(self, **kwargs):
         for key, value in kwargs.items():
             setattr(self, key.lower(), value)
@@ -417,6 +438,9 @@ class _SecurityState(object):
 
     def unauthorized_handler(self, fn):
         self._unauthorized_callback = fn
+
+    def password_validator(self, cb):
+        self._password_validator = cb
 
 
 class Security(object):
@@ -496,7 +520,39 @@ class Security(object):
             if state.cli_roles_name:
                 app.cli.add_command(roles, state.cli_roles_name)
 
+        if cv("PASSWORD_COMPLEXITY_CHECKER", app=app) == "zxcvbn":
+            self._check_modules("zxcvbn", "PASSWORD_COMPLEXITY_CHECKER")
+
         return state
+
+    def _check_modules(self, module, config_name):  # pragma: no cover
+        from importlib.util import find_spec
+
+        module_exists = find_spec(module)
+        if not module_exists:
+            raise ValueError(f"{module} is required for {config_name}")
+
+        return module_exists
+
+    def password_validator(self, cb):
+        """Callback for validating a user password.
+
+        This is called on registration as well a change and reset password.
+        For registration, kwargs will be all the form input fields that are attributes
+        of the user model.
+        For reset/change, kwargs will be user=UserModel
+
+        :param cb: Callback function with signature (password, is_register, kwargs)
+            :password: desired new plain text password
+            :is_register: True if called as part of initial registration
+            :kwargs: user info
+
+        Returns: None if password passes all validations. A list of (localized) messages
+        if not.
+
+        .. versionadded:: 3.8.0
+        """
+        self._state._password_validator = cb
 
     def render_template(self, *args, **kwargs):
         return render_template(*args, **kwargs)
