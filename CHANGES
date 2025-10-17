@@ -4,6 +4,13 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 3.8.1
+-------------
+
+Released October 17th 2025
+
+- i18n: remove zh-hant locale folder to avoid Babel issues with dir containing hyphens
+
 Version 3.8.0
 -------------
 
