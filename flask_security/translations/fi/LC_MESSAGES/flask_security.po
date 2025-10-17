@@ -1,0 +1,305 @@
+# Translations template for Flask-Security-Invenio.
+# Copyright (C) 2025 CERN
+# This file is distributed under the same license as the
+# Flask-Security-Invenio project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+# 
+# Translators:
+# Matti Lassila <matti.lassila@gmail.com>, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Flask-Security-Invenio 3.6.0\n"
+"Report-Msgid-Bugs-To: info@inveniosoftware.org\n"
+"POT-Creation-Date: 2025-07-08 20:00+0000\n"
+"PO-Revision-Date: 2025-05-07 11:05+0000\n"
+"Last-Translator: Matti Lassila <matti.lassila@gmail.com>, 2025\n"
+"Language-Team: Finnish (https://app.transifex.com/inveniosoftware/teams/23537/fi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+"Language: fi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: flask_security/core.py:103
+msgid "Login Required"
+msgstr "Kirjautuminen vaaditaan"
+
+#: flask_security/core.py:104
+msgid "Welcome"
+msgstr "Tervetuloa"
+
+#: flask_security/core.py:105
+msgid "Please confirm your email"
+msgstr "Vahvista sähköpostiosoitteesi"
+
+#: flask_security/core.py:106
+#: flask_security/templates/security/email/reset_notice.html:1
+msgid "Your password has been reset"
+msgstr "Salasanasi on nollattu"
+
+#: flask_security/core.py:107
+msgid "Your password has been changed"
+msgstr "Salasanasi on vaihdettu"
+
+#: flask_security/core.py:108
+msgid "Password reset instructions"
+msgstr "Ohjeet salasanan palauttamiseen"
+
+#: flask_security/core.py:133
+msgid "You do not have permission to view this resource."
+msgstr "Sinulla ei ole oikeuksia tarkastella tätä resurssia."
+
+#: flask_security/core.py:135
+#, python-format
+msgid "Thank you. Confirmation instructions have been sent to %(email)s."
+msgstr "Kiitos. Vahvistusohjeet on lähetetty osoitteeseen %(email)s."
+
+#: flask_security/core.py:138
+msgid "Thank you. Your email has been confirmed."
+msgstr "Kiitos. Sähköpostiosoitteesi on vahvistettu."
+
+#: flask_security/core.py:139
+msgid "Your email has already been confirmed."
+msgstr "Sähköpostiosoitteesi on jo vahvistettu."
+
+#: flask_security/core.py:140
+msgid "Invalid confirmation token."
+msgstr "Virheellinen vahvistustunnus."
+
+#: flask_security/core.py:142
+#, python-format
+msgid "%(email)s is already associated with an account."
+msgstr "%(email)s on jo liitetty käyttäjätiliin."
+
+#: flask_security/core.py:145
+msgid "Password does not match"
+msgstr "Salasana ei täsmää"
+
+#: flask_security/core.py:146
+msgid "Passwords do not match"
+msgstr "Salasanat eivät täsmää"
+
+#: flask_security/core.py:147
+msgid "Redirections outside the domain are forbidden"
+msgstr "Uudelleenohjaukset toimialueen ulkopuolelle ovat kiellettyjä"
+
+#: flask_security/core.py:149
+#, python-format
+msgid "Instructions to reset your password have been sent to %(email)s."
+msgstr "Ohjeet salasanan palauttamiseksi on lähetetty osoitteeseen %(email)s."
+
+#: flask_security/core.py:154
+#, python-format
+msgid ""
+"You did not reset your password within %(within)s. New instructions have "
+"been sent to %(email)s."
+msgstr ""
+"Et palauttanut salasanaasi ajassa %(within)s. Uudet ohjeet on lähetetty "
+"osoitteeseen %(email)s."
+
+#: flask_security/core.py:159
+msgid "Invalid reset password token."
+msgstr "Virheellinen salasanan palautustunnus."
+
+#: flask_security/core.py:160
+msgid "Email requires confirmation."
+msgstr "Sähköpostiosoite vaatii vahvistuksen."
+
+#: flask_security/core.py:162
+#, python-format
+msgid "Confirmation instructions have been sent to %(email)s."
+msgstr "Vahvistusohjeet on lähetetty osoitteeseen %(email)s."
+
+#: flask_security/core.py:167
+#, python-format
+msgid ""
+"You did not confirm your email within %(within)s. New instructions to "
+"confirm your email have been sent to %(email)s."
+msgstr ""
+"Et vahvistanut sähköpostiasi ajassa %(within)s. Uudet vahvistusohjeet on "
+"lähetetty osoitteeseen %(email)s."
+
+#: flask_security/core.py:175
+#, python-format
+msgid ""
+"You did not login within %(within)s. New instructions to login have been "
+"sent to %(email)s."
+msgstr ""
+"Et kirjautunut sisään ajassa %(within)s. Uudet kirjautumisohjeet on "
+"lähetetty osoitteeseen %(email)s."
+
+#: flask_security/core.py:181
+#, python-format
+msgid "Instructions to login have been sent to %(email)s."
+msgstr "Kirjautumisohjeet on lähetetty osoitteeseen %(email)s."
+
+#: flask_security/core.py:184
+msgid "Invalid login token."
+msgstr "Virheellinen kirjautumistunnus."
+
+#: flask_security/core.py:185
+msgid "Account is disabled."
+msgstr "Tili on poistettu käytöstä."
+
+#: flask_security/core.py:186
+msgid "Email not provided"
+msgstr "Sähköpostiosoitetta ei annettu"
+
+#: flask_security/core.py:187
+msgid "Invalid email address"
+msgstr "Virheellinen sähköpostiosoite"
+
+#: flask_security/core.py:188
+msgid "Password not provided"
+msgstr "Salasanaa ei annettu"
+
+#: flask_security/core.py:189
+msgid "No password is set for this user"
+msgstr "Tälle käyttäjälle ei ole asetettu salasanaa"
+
+#: flask_security/core.py:190
+msgid "Password must be at least 6 characters"
+msgstr "Salasanan on oltava vähintään 6 merkkiä"
+
+#: flask_security/core.py:191
+msgid "Specified user does not exist"
+msgstr "Määritettyä käyttäjää ei ole olemassa"
+
+#: flask_security/core.py:192
+msgid "Invalid password"
+msgstr "Virheellinen salasana"
+
+#: flask_security/core.py:193
+msgid "Forgot password?"
+msgstr "Unohditko salasanan?"
+
+#: flask_security/core.py:196
+msgid ""
+"You successfully reset your password and you have been logged in "
+"automatically."
+msgstr ""
+"Palautit salasanasi onnistuneesti ja sinut kirjattiin sisään "
+"automaattisesti."
+
+#: flask_security/core.py:202
+msgid "Your new password must be different than your previous password."
+msgstr "Uuden salasanan on oltava eri kuin aiempi salasanasi."
+
+#: flask_security/core.py:205
+msgid "You successfully changed your password."
+msgstr "Vaihdoit salasanasi onnistuneesti."
+
+#: flask_security/core.py:206
+msgid "Please log in to access this page."
+msgstr "Kirjaudu sisään päästäksesi tälle sivulle."
+
+#: flask_security/core.py:207
+msgid "Please reauthenticate to access this page."
+msgstr "Vahvista henkilöllisyytesi uudelleen päästäksesi tälle sivulle."
+
+#: flask_security/forms.py:45
+msgid "Email Address"
+msgstr "Sähköpostiosoite"
+
+#: flask_security/forms.py:46
+msgid "Password"
+msgstr "Salasana"
+
+#: flask_security/forms.py:47 flask_security/templates/security/_menu.html:4
+#: flask_security/templates/security/login_user.html:3
+msgid "Login"
+msgstr "Kirjaudu"
+
+#: flask_security/forms.py:48 flask_security/templates/security/_menu.html:6
+#: flask_security/templates/security/register_user.html:3
+msgid "Register"
+msgstr "Rekisteröi"
+
+#: flask_security/forms.py:49
+msgid "Resend Confirmation Instructions"
+msgstr "Lähetä vahvistusohjeet uudelleen"
+
+#: flask_security/forms.py:50
+msgid "Recover Password"
+msgstr "Palauta salasana"
+
+#: flask_security/forms.py:51
+msgid "Reset Password"
+msgstr "Nollaa salasana"
+
+#: flask_security/forms.py:52
+msgid "Retype Password"
+msgstr "Kirjoita salasana uudelleen"
+
+#: flask_security/forms.py:53
+msgid "New Password"
+msgstr "Uusi salasana"
+
+#: flask_security/forms.py:54
+msgid "Change Password"
+msgstr "Vaihda salasana"
+
+#: flask_security/templates/security/_menu.html:2
+msgid "Menu"
+msgstr "Valikko"
+
+#: flask_security/templates/security/_menu.html:9
+msgid "Forgot password"
+msgstr "Unohtunut salasana"
+
+#: flask_security/templates/security/_menu.html:12
+msgid "Confirm account"
+msgstr "Vahvista tili"
+
+#: flask_security/templates/security/change_password.html:3
+msgid "Change password"
+msgstr "Vaihda salasana"
+
+#: flask_security/templates/security/forgot_password.html:3
+msgid "Send password reset instructions"
+msgstr "Lähetä salasanan palautusohjeet"
+
+#: flask_security/templates/security/reset_password.html:3
+msgid "Reset password"
+msgstr "Nollaa salasana"
+
+#: flask_security/templates/security/send_confirmation.html:3
+msgid "Resend confirmation instructions"
+msgstr "Lähetä vahvistusohjeet uudelleen"
+
+#: flask_security/templates/security/email/change_notice.html:1
+msgid "Your password has been changed."
+msgstr "Salasanasi on vaihdettu."
+
+#: flask_security/templates/security/email/change_notice.html:3
+msgid "If you did not change your password,"
+msgstr "Jos et vaihtanut salasanaasi,"
+
+#: flask_security/templates/security/email/change_notice.html:3
+msgid "click here to reset it"
+msgstr "klikkaa tästä palauttaaksesi sen"
+
+#: flask_security/templates/security/email/confirmation_instructions.html:1
+msgid "Please confirm your email through the link below:"
+msgstr "Vahvista sähköpostiosoitteesi alla olevan linkin kautta:"
+
+#: flask_security/templates/security/email/confirmation_instructions.html:3
+#: flask_security/templates/security/email/welcome.html:6
+msgid "Confirm my account"
+msgstr "Vahvista tilini"
+
+#: flask_security/templates/security/email/reset_instructions.html:1
+msgid "Click here to reset your password"
+msgstr "Klikkaa tästä nollataksesi salasanasi"
+
+#: flask_security/templates/security/email/welcome.html:1
+#, python-format
+msgid "Welcome %(email)s!"
+msgstr "Tervetuloa %(email)s!"
+
+#: flask_security/templates/security/email/welcome.html:4
+msgid "You can confirm your email through the link below:"
+msgstr "Voit vahvistaa sähköpostiosoitteesi alla olevan linkin kautta:"
