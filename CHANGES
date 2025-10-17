@@ -4,6 +4,17 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 3.8.0
+-------------
+
+Released October 17th 2025
+
+- feat: add pluggable password validation
+- i18n: pulled translations
+- fix: pin bcrypt<5.0.0 due to incompatibility with passlib. bcrypt 5.0.0+
+  enforces 72-byte password limit before hashing, breaking passlib's bcrypt
+  backend initialization which tests with 255-byte passwords.
+
 Version 3.7.0
 -------------
 
