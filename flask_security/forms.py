@@ -7,6 +7,7 @@ Flask-Security forms module
 
 :copyright: (c) 2012 by Matt Wright.
 :copyright: (c) 2017 by CERN.
+:copyright: (c) 2025 by KTH Royal Institute of Technology.
 :license: MIT, see LICENSE for more details.
 """
 
@@ -282,7 +283,12 @@ class ConfirmRegisterForm(
         for k, v in self.data.items():
             if hasattr(_datastore.user_model, k):
                 rfields[k] = v
-        del rfields["password"]
+        if "password" in rfields:
+            del rfields["password"]
+        # Skip password validation if password field doesn't exist (e.g., OAuth signup)
+        if not hasattr(self, "password") or self.password is None:
+            return True
+
         pbad = _security._password_validator(self.password.data, True, **rfields)
         if pbad:
             self.password.errors.extend(pbad)
