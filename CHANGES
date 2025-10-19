@@ -4,6 +4,13 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 3.8.2
+-------------
+
+Released October 20th 2025
+
+- fix: handle missing password field in form validation for OAuth/SSO flows
+
 Version 3.8.1
 -------------
 
