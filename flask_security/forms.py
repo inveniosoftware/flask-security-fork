@@ -282,10 +282,11 @@ class ConfirmRegisterForm(
         for k, v in self.data.items():
             if hasattr(_datastore.user_model, k):
                 rfields[k] = v
-        del rfields["password"]
-        pbad = _security._password_validator(self.password.data, True, **rfields)
-        if pbad:
-            self.password.errors.extend(pbad)
+        rfields.pop("password", None)
+        if self.password:
+            pbad = _security._password_validator(self.password.data, True, **rfields)
+            if pbad:
+                self.password.errors.extend(pbad)
             return False
         return True
 
