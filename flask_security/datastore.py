@@ -232,7 +232,7 @@ class SQLAlchemyUserDatastore(SQLAlchemyDatastore, UserDatastore):
                 return rv
 
     def get_user_by_id(self, identifier):
-        return self.user_model.query.get(identifier)
+        return self.db.session.get(self.user_model, identifier)
 
     def find_user(self, **kwargs):
         return self.user_model.query.filter_by(**kwargs).first()
