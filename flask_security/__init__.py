@@ -58,7 +58,7 @@ from .utils import (
     url_for_security,
 )
 
-__version__ = "3.8.2"
+__version__ = "3.8.3"
 __all__ = (
     "AnonymousUser",
     "auth_required",
