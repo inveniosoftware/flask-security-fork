@@ -4,6 +4,15 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 4.0.0
+-------------
+
+Released January 27th 2026
+
+- chore(black): update formatting to >= 26.0
+- fix: sqlalchemy Query.get deprecation warning
+- fix(chore): DeprecationWarning stdlib
+
 Version 3.8.3
 -------------
 
