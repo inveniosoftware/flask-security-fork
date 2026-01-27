@@ -8,6 +8,7 @@ This module contains an user datastore classes.
 :copyright: (c) 2012 by Matt Wright.
 :license: MIT, see LICENSE for more details.
 """
+
 import warnings
 
 from .utils import get_identity_attributes
