@@ -19,6 +19,7 @@ from flask_wtf import FlaskForm as BaseForm
 from markupsafe import Markup
 from speaklater import make_lazy_gettext
 from wtforms import (
+    EmailField,
     Field,
     HiddenField,
     PasswordField,
@@ -109,21 +110,21 @@ class Form(BaseForm):
 
 
 class EmailFormMixin:
-    email = StringField(
+    email = EmailField(
         get_form_field_label("email"), validators=[email_required, email_validator]
     )
 
 
 class UserEmailFormMixin:
     user = None
-    email = StringField(
+    email = EmailField(
         get_form_field_label("email"),
         validators=[email_required, email_validator, valid_user_email],
     )
 
 
 class UniqueEmailFormMixin:
-    email = StringField(
+    email = EmailField(
         get_form_field_label("email"),
         validators=[email_required, email_validator, unique_user_email],
     )
@@ -214,7 +215,7 @@ class ForgotPasswordForm(Form, UserEmailFormMixin):
 class LoginForm(Form, NextFormMixin):
     """The default login form"""
 
-    email = StringField(
+    email = EmailField(
         get_form_field_label("email"),
         validators=[Required(message="EMAIL_NOT_PROVIDED")],
     )
