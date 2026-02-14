@@ -111,7 +111,10 @@ def roles_required(*roles):
     def wrapper(fn):
         @wraps(fn)
         def decorated_view(*args, **kwargs):
-            perms = [Permission(RoleNeed(role)) for role in roles]
+            perms = [
+                Permission(RoleNeed(current_app.security.datastore.find_role(role).id))
+                for role in roles
+            ]
             for perm in perms:
                 if not perm.can():
                     if _security._unauthorized_callback:
@@ -143,7 +146,12 @@ def roles_accepted(*roles):
     def wrapper(fn):
         @wraps(fn)
         def decorated_view(*args, **kwargs):
-            perm = Permission(*[RoleNeed(role) for role in roles])
+            perm = Permission(
+                *[
+                    RoleNeed(current_app.security.datastore.find_role(role).id)
+                    for role in roles
+                ]
+            )
             if perm.can():
                 return fn(*args, **kwargs)
             if _security._unauthorized_callback:
