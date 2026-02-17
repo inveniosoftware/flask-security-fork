@@ -4,6 +4,14 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 4.1.0
+-------------
+
+Released February 17th 2026
+
+- feat: change role.name to role.id
+- fix: use type email for email inputs
+
 Version 4.0.0
 -------------
 
