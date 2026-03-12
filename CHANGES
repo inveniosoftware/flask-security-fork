@@ -4,6 +4,13 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 4.2.0
+-------------
+
+Released March 12th 2026
+
+- chore(setup): replace passlib with libpass
+
 Version 4.1.0
 -------------
 
