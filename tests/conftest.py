@@ -111,6 +111,10 @@ def app(request):
     def post_register():
         return render_template("index.html", content="Post Register")
 
+    @app.route("/post_confirm")
+    def post_confirm():
+        return render_template("index.html", content="Post Confirm")
+
     @app.route("/admin")
     @roles_required("admin")
     def admin():
