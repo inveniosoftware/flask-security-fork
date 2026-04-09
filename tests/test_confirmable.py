@@ -157,6 +157,88 @@ def test_login_when_unconfirmed(client, get_message):
 
 
 @pytest.mark.registerable()
+def test_confirmation_token_reuse_does_not_auto_login(client, get_message):
+    """A reused confirmation link must not silently log the user in."""
+    email = "reuse@lp.com"
+
+    with capture_registrations() as registrations:
+        data = dict(email=email, password="password", next="")
+        client.post("/register", data=data)
+
+    token = registrations[0]["confirm_token"]
+
+    # First confirm: legitimate, user gets logged in (default AUTO_LOGIN_AFTER_CONFIRM=True).
+    response = client.get("/confirm/" + token, follow_redirects=True)
+    assert get_message("EMAIL_CONFIRMED") in response.data
+    assert b"Hello " + email.encode() in response.data
+
+    logout(client)
+
+    # Re-using the same link from anonymous context must NOT log us back in.
+    response = client.get("/confirm/" + token, follow_redirects=True)
+    assert get_message("ALREADY_CONFIRMED") in response.data
+    assert b"Hello " + email.encode() not in response.data
+
+
+@pytest.mark.registerable()
+@pytest.mark.settings(login_without_confirmation=True, auto_login_after_confirm=False)
+def test_confirmation_different_user_when_logged_in_no_auto(client, get_message):
+    """AUTO_LOGIN_AFTER_CONFIRM=False must not log the second user in."""
+    e1 = "dude@lp.com"
+    e2 = "lady@lp.com"
+
+    with capture_registrations() as registrations:
+        for e in e1, e2:
+            data = dict(email=e, password="password", next="")
+            client.post("/register", data=data)
+            logout(client)
+
+    token1 = registrations[0]["confirm_token"]
+    token2 = registrations[1]["confirm_token"]
+
+    client.get("/confirm/" + token1, follow_redirects=True)
+    logout(client)
+    authenticate(client, email=e1)
+
+    response = client.get("/confirm/" + token2, follow_redirects=True)
+    assert get_message("EMAIL_CONFIRMED") in response.data
+    # second user must not have been logged in
+    assert b"Hello " + e2.encode() not in response.data
+
+
+@pytest.mark.registerable()
+@pytest.mark.settings(auto_login_after_confirm=False)
+def test_confirm_redirect(client, get_message):
+    """With AUTO_LOGIN_AFTER_CONFIRM=False, redirect target is the login URL."""
+    with capture_registrations() as registrations:
+        data = dict(email="jane@lp.com", password="password", next="")
+        client.post("/register", data=data, follow_redirects=True)
+
+    token = registrations[0]["confirm_token"]
+
+    response = client.get("/confirm/" + token)
+    assert "location" in response.headers
+    assert "/login" in response.location
+
+    response = client.get(response.location)
+    assert get_message("EMAIL_CONFIRMED") in response.data
+
+
+@pytest.mark.registerable()
+@pytest.mark.settings(post_confirm_view="/post_confirm")
+def test_confirm_redirect_to_post_confirm(client, get_message):
+    """post_confirm_view takes precedence over the login redirect."""
+    with capture_registrations() as registrations:
+        data = dict(email="john@lp.com", password="password", next="")
+        client.post("/register", data=data, follow_redirects=True)
+
+    token = registrations[0]["confirm_token"]
+
+    response = client.get("/confirm/" + token, follow_redirects=True)
+    assert b"Post Confirm" in response.data
+
+
+@pytest.mark.registerable()
 @pytest.mark.settings(login_without_confirmation=True)
 def test_confirmation_different_user_when_logged_in(client, get_message):
     e1 = "dude@lp.com"
