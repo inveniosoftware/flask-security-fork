@@ -141,39 +141,50 @@ def confirm_email(token):
     expired, invalid, user = confirm_email_token_status(token)
 
     if not user or invalid:
-        invalid = True
         do_flash(*get_message("INVALID_CONFIRMATION_TOKEN"))
-
-    already_confirmed = user is not None and user.confirmed_at is not None
-
-    if expired and not already_confirmed:
-        send_confirmation_instructions(user)
-        do_flash(
-            *get_message(
-                "CONFIRMATION_EXPIRED",
-                email=user.email,
-                within=_security.confirm_email_within,
-            )
+        return redirect(
+            get_url(_security.confirm_error_view) or url_for("send_confirmation")
         )
-    if invalid or (expired and not already_confirmed):
+
+    already_confirmed = user.confirmed_at is not None
+
+    if expired or already_confirmed:
+        if already_confirmed:
+            do_flash(*get_message("ALREADY_CONFIRMED"))
+        else:
+            send_confirmation_instructions(user)
+            do_flash(
+                *get_message(
+                    "CONFIRMATION_EXPIRED",
+                    email=user.email,
+                    within=_security.confirm_email_within,
+                )
+            )
         return redirect(
             get_url(_security.confirm_error_view) or url_for("send_confirmation")
         )
 
     if user != current_user:
         logout_user()
-        login_user(user)
+        if config_value("AUTO_LOGIN_AFTER_CONFIRM"):
+            # N.B. this is a (small) security risk if email went to wrong place.
+            # and you have the LOGIN_WITHOUT_CONFIRMATION flag since in that case
+            # you can be logged in and doing stuff - but another person could
+            # get the email.
+            login_user(user)
 
-    if confirm_user(user):
-        after_this_request(_commit)
-        msg = "EMAIL_CONFIRMED"
-    else:
-        msg = "ALREADY_CONFIRMED"
+    confirm_user(user)
+    after_this_request(_commit)
 
-    do_flash(*get_message(msg))
+    do_flash(*get_message("EMAIL_CONFIRMED"))
 
     return redirect(
-        get_url(_security.post_confirm_view) or get_url(_security.post_login_view)
+        get_url(_security.post_confirm_view)
+        or get_url(
+            _security.post_login_view
+            if config_value("AUTO_LOGIN_AFTER_CONFIRM")
+            else _security.login_url
+        )
     )
 
 
