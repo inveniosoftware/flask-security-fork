@@ -4,6 +4,13 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 4.2.1
+-------------
+
+Released April 13th 2026
+
+- fix: don't allow re-use of confirmation token
+
 Version 4.2.0
 -------------
 
