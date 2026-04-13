@@ -4,6 +4,11 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 3.8.4
+-------------
+
+- fix: don't allow re-use of confirmation token
+
 Version 3.8.3
 -------------
 
