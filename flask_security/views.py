@@ -113,7 +113,7 @@ def register():
     return _security.render_template(
         config_value("REGISTER_USER_TEMPLATE"),
         register_user_form=form,
-        **_ctx("register")
+        **_ctx("register"),
     )
 
 
@@ -131,7 +131,7 @@ def send_confirmation():
     return _security.render_template(
         config_value("SEND_CONFIRMATION_TEMPLATE"),
         send_confirmation_form=form,
-        **_ctx("send_confirmation")
+        **_ctx("send_confirmation"),
     )
 
 
@@ -204,7 +204,7 @@ def forgot_password():
     return _security.render_template(
         config_value("FORGOT_PASSWORD_TEMPLATE"),
         forgot_password_form=form,
-        **_ctx("forgot_password")
+        **_ctx("forgot_password"),
     )
 
 
@@ -246,7 +246,7 @@ def reset_password(token):
         config_value("RESET_PASSWORD_TEMPLATE"),
         reset_password_form=form,
         reset_password_token=token,
-        **_ctx("reset_password")
+        **_ctx("reset_password"),
     )
 
 
@@ -269,7 +269,7 @@ def change_password():
     return _security.render_template(
         config_value("CHANGE_PASSWORD_TEMPLATE"),
         change_password_form=form,
-        **_ctx("change_password")
+        **_ctx("change_password"),
     )
 
 

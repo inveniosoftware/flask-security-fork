@@ -20,7 +20,7 @@ def test_verify_password_bcrypt_double_hash(app, sqlalchemy_datastore):
             "SECURITY_PASSWORD_HASH": "bcrypt",
             "SECURITY_PASSWORD_SALT": "salty",
             "SECURITY_PASSWORD_SINGLE_HASH": False,
-        }
+        },
     )
     with app.app_context():
         assert verify_password("pass", hash_password("pass"))
@@ -34,7 +34,7 @@ def test_verify_password_bcrypt_single_hash(app, sqlalchemy_datastore):
             "SECURITY_PASSWORD_HASH": "bcrypt",
             "SECURITY_PASSWORD_SALT": None,
             "SECURITY_PASSWORD_SINGLE_HASH": True,
-        }
+        },
     )
     with app.app_context():
         assert verify_password("pass", hash_password("pass"))
@@ -49,7 +49,7 @@ def test_verify_password_bcrypt_rounds_too_low(app, sqlalchemy_datastore):
                 "SECURITY_PASSWORD_HASH": "bcrypt",
                 "SECURITY_PASSWORD_SALT": "salty",
                 "SECURITY_PASSWORD_HASH_OPTIONS": {"bcrypt": {"rounds": 3}},
-            }
+            },
         )
     assert all(s in str(exc_msg) for s in ["rounds", "too low"])
 
@@ -62,7 +62,7 @@ def test_login_with_bcrypt_enabled(app, sqlalchemy_datastore):
             "SECURITY_PASSWORD_HASH": "bcrypt",
             "SECURITY_PASSWORD_SALT": "salty",
             "SECURITY_PASSWORD_SINGLE_HASH": False,
-        }
+        },
     )
     response = authenticate(app.test_client(), follow_redirects=True)
     assert b"Home Page" in response.data
@@ -77,5 +77,5 @@ def test_missing_hash_salt_option(app, sqlalchemy_datastore):
                 "SECURITY_PASSWORD_HASH": "bcrypt",
                 "SECURITY_PASSWORD_SALT": None,
                 "SECURITY_PASSWORD_SINGLE_HASH": False,
-            }
+            },
         )

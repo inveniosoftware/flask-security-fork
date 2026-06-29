@@ -143,7 +143,7 @@ def test_addition_identity_attributes(app, sqlalchemy_datastore):
     init_app_with_options(
         app,
         sqlalchemy_datastore,
-        **{"SECURITY_USER_IDENTITY_ATTRIBUTES": ("email", "username")}
+        **{"SECURITY_USER_IDENTITY_ATTRIBUTES": ("email", "username")},
     )
     client = app.test_client()
     response = authenticate(client, email="matt", follow_redirects=True)
@@ -174,7 +174,7 @@ def test_change_hash_type(app, sqlalchemy_datastore):
             "SECURITY_PASSWORD_HASH": "plaintext",
             "SECURITY_PASSWORD_SALT": None,
             "SECURITY_PASSWORD_SCHEMES": ["bcrypt", "plaintext"],
-        }
+        },
     )
 
     app.config["SECURITY_PASSWORD_HASH"] = "bcrypt"
