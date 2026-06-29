@@ -1,3 +1,84 @@
+# SPDX-FileCopyrightText: 2022 CERN.
+# SPDX-FileCopyrightText: 2026 TU Wien.
+# SPDX-License-Identifier: MIT
+
+[project]
+name = "Flask-Security-Invenio"
+description = "Simple security for Flask apps."
+readme = "README.rst"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+  { name = "CERN/TU Wien/JRC", email = "info@inveniosoftware.org" },
+]
+keywords = [
+  "flask",
+  "security",
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+]
+dependencies = [
+  "email-validator>=1.0.5",
+  "flask>=1.1.4",
+  "flask-babel>=2.0.0",
+  "flask-login>=0.4.1",
+  "flask-mail>=0.9.1",
+  "flask-principal>=0.4.0",
+  "flask-wtf>=1.1.0",
+  "itsdangerous>=2.0",
+  "libpass>=1.9.0",
+  "markupsafe>=2.1.5",
+  "speaklater>=1.3",
+  "zxcvbn>=4.4.28",
+]
+dynamic = ["version"]
+
+[project.urls]
+Repository = "https://github.com/inveniosoftware/flask-security-invenio"
+
+[project.optional-dependencies]
+tests = [
+  "bcrypt>=3.1.0,<5.0.0",
+  "coverage>=5.3,<6",
+  "flask-sphinx-themes>=1.0.2",
+  "flask-sqlalchemy>=2.5.1",
+  "mock>=1.3.0",
+  "msgcheck>=2.9",
+  "pytest-black-ng>=0.4.0",
+  "pytest-cov>=2.10.1",
+  "pytest-flask>=1.0.0",
+  "pytest-isort>=1.2.0",
+  "pytest-pycodestyle>=2.2.0",
+  "pytest-pydocstyle>=2.2.0",
+  "pytest>=6,<9",
+  "sphinx>=4.2.0",
+]
+
 [build-system]
-requires = ["setuptools", "wheel", "babel>2.8"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "flask_security/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = [
+  "/flask_security",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/flask_security",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.pydocstyle]
+add_ignore = "D401"
+
+[tool.pytest.ini_options]
+addopts = "--black --isort --cov=flask_security --cov-report=term-missing --cache-clear"
+testpaths = "tests flask_security"
+live_server_scope = "module"

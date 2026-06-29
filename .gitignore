@@ -55,3 +55,4 @@ Session.vim
 
 .venv
 
+uv.lock

@@ -13,4 +13,5 @@ jobs:
     uses: inveniosoftware/invenio-i18n/.github/workflows/i18n-push-base.yml@master
     with:
       extract-backend: true
+      backend-package-path: flask_security
     secrets: inherit
