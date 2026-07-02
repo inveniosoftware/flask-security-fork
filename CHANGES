@@ -4,6 +4,14 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version 4.2.2
+-------------
+
+Released July 2nd 2026
+
+- chore(setup): migrate build backend from setuptools to hatchling
+- chore(format): reformat with black
+
 Version 4.2.1
 -------------
 
