@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Copyright (C) 2019 CERN.
-# Copyright (C) 2025 KTH Royal Institute of Technology.
+# Copyright (C) 2025-2026 KTH Royal Institute of Technology.
 #
 
 #
@@ -24,7 +24,7 @@
 host = https://app.transifex.com
 
 [o:inveniosoftware:p:invenio:r:flask-security-messages]
-file_filter = flask_security/translations/<lang>/LC_MESSAGES/flask_security.po
-source_file = flask_security/translations/flask_security.pot
+file_filter = flask_security/translations/<lang>/LC_MESSAGES/messages.po
+source_file = flask_security/translations/messages.pot
 source_lang = en
 type = PO

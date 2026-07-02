@@ -29,7 +29,7 @@ Core
                                          Defaults to ``True``.
 ``SECURITY_I18N_DOMAIN``                 Specifies the name for domain
                                          used for translations.
-                                         Defaults to ``flask_security``.
+                                         Defaults to ``messages``.
 ``SECURITY_I18N_DIRNAME``                Specifies the directory containing the
                                          ``MO`` files used for translations.
                                          Defaults to

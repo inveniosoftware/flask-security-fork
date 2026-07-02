@@ -59,7 +59,7 @@ _default_config = {
     "URL_PREFIX": None,
     "SUBDOMAIN": None,
     "FLASH_MESSAGES": True,
-    "I18N_DOMAIN": "flask_security",
+    "I18N_DOMAIN": "messages",
     "I18N_DIRNAME": str(files("flask_security") / "translations"),
     "PASSWORD_HASH": "bcrypt",
     "PASSWORD_SALT": None,

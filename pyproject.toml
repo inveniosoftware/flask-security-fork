@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2022 CERN.
 # SPDX-FileCopyrightText: 2026 TU Wien.
+# SPDX-FileCopyrightText: 2026 KTH Royal Institute of Technology.
 # SPDX-License-Identifier: MIT
 
 [project]
@@ -37,6 +38,9 @@ dynamic = ["version"]
 [project.urls]
 Repository = "https://github.com/inveniosoftware/flask-security-invenio"
 
+[project.entry-points."invenio_i18n.translations"]
+messages = "flask_security"
+
 [project.optional-dependencies]
 tests = [
   "bcrypt>=3.1.0,<5.0.0",
@@ -71,6 +75,38 @@ packages = [
 include = [
   "/flask_security",
 ]
+
+# see https://babel.pocoo.org/en/latest/messages.html#toml-configuration-format
+[tool.babel]
+[tool.babel.compile_catalog]
+directory = "flask_security/translations/"
+use_fuzzy = true
+
+[tool.babel.extract_messages]
+copyright_holder = "CERN"
+msgid_bugs_address = "info@inveniosoftware.org"
+mapping_file = "pyproject.toml"
+output_file = "flask_security/translations/messages.pot"
+add_comments = "NOTE"
+
+[tool.babel.init_catalog]
+input_file = "flask_security/translations/messages.pot"
+output_dir = "flask_security/translations/"
+
+[[tool.babel.mappings]]
+method = "python"
+pattern = "**.py"
+encoding = "utf-8"
+
+[[tool.babel.mappings]]
+method = "jinja2"
+pattern = "**/templates/**.html"
+encoding = "utf-8"
+
+[[tool.babel.mappings]]
+method = "jinja2"
+pattern = "**/templates/**.jinja"
+encoding = "utf-8"
 
 [tool.isort]
 profile = "black"
