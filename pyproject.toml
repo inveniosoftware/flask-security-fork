@@ -59,6 +59,46 @@ tests = [
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+# see https://babel.pocoo.org/en/latest/messages.html#toml-configuration-format
+[tool.babel]
+[tool.babel.compile_catalog]
+directory = "flask_security/translations/"
+domain = "flask_security"
+use_fuzzy = true
+
+[tool.babel.extract_messages]
+add_comments = "NOTE"
+copyright_holder = "CERN"
+mapping_file = "pyproject.toml"
+msgid_bugs_address = "info@inveniosoftware.org"
+output_file = "flask_security/translations/flask_security.pot"
+
+[tool.babel.init_catalog]
+domain = "flask_security"
+input_file = "flask_security/translations/flask_security.pot"
+output_dir = "flask_security/translations/"
+
+[tool.babel.update_catalog]
+domain = "flask_security"
+input_file = "flask_security/translations/flask_security.pot"
+output_dir = "flask_security/translations/"
+
+[[tool.babel.mappings]]
+method = "javascript"
+pattern = "**.js"
+encoding = "utf-8"
+extract_messages = "$._, jQuery._"
+
+[[tool.babel.mappings]]
+method = "python"
+pattern = "**.py"
+encoding = "utf-8"
+
+[[tool.babel.mappings]]
+method = "jinja2"
+pattern = "**/templates/**.html"
+encoding = "utf-8"
+
 [tool.hatch.version]
 path = "flask_security/__init__.py"
 

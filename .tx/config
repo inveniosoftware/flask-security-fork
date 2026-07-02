@@ -6,8 +6,8 @@
 
 #
 # 1) Create message catalog:
-#    $ pybabel extract -F pyproject.toml -o flask_security/translations/messages.pot flask_security
-#    $ pybabel init -i flask_security/translations/messages.pot -d flask_security/translations -l <lang>
+#    $ pybabel extract -F pyproject.toml -o flask_security/translations/flask_security.pot flask_security
+#    $ pybabel init -i flask_security/translations/flask_security.pot -d flask_security/translations -l <lang>
 #    $ pybabel compile -d flask_security/translations --use-fuzzy
 # 2) Ensure project has been created on Transifex under the inveniosoftware
 #    organisation.
