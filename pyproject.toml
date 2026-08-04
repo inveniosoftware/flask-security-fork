@@ -66,6 +66,11 @@ build-backend = "hatchling.build"
 [tool.hatch.version]
 path = "flask_security/__init__.py"
 
+[tool.hatch.build]
+artifacts = [
+  "*.mo",
+]
+
 [tool.hatch.build.targets.wheel]
 packages = [
   "/flask_security",
