@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 # 
 # Translators:
-# Minjae Kwon, 2026
+# Suthep Yonphimai <tomztt@gmail.com>, 2026
 # 
 #, fuzzy
 msgid ""
@@ -13,297 +13,303 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-07-02 19:44+0000\n"
 "PO-Revision-Date: 2025-05-07 11:05+0000\n"
-"Last-Translator: Minjae Kwon, 2026\n"
-"Language-Team: Korean (https://app.transifex.com/inveniosoftware/teams/23537/ko/)\n"
+"Last-Translator: Suthep Yonphimai <tomztt@gmail.com>, 2026\n"
+"Language-Team: Thai (https://app.transifex.com/inveniosoftware/teams/23537/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
-"Language: ko\n"
+"Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: flask_security/core.py:111
 msgid "Login Required"
-msgstr "로그인 필요"
+msgstr "จำเป็นต้องเข้าสู่ระบบ"
 
 #: flask_security/core.py:112
 msgid "Welcome"
-msgstr "환영합니다"
+msgstr "ยินดีต้อนรับ"
 
 #: flask_security/core.py:113
 msgid "Please confirm your email"
-msgstr "이메일을 확인해 주십시오"
+msgstr "กรุณายืนยันอีเมลของคุณ"
 
 #: flask_security/core.py:114
 #: flask_security/templates/security/email/reset_notice.html:1
 msgid "Your password has been reset"
-msgstr "비밀번호가 재설정되었습니다"
+msgstr "รหัสผ่านของคุณถูกรีเซ็ตแล้ว"
 
 #: flask_security/core.py:115
 msgid "Your password has been changed"
-msgstr "비밀번호가 변경되었습니다"
+msgstr "รหัสผ่านของคุณถูกเปลี่ยนแล้ว"
 
 #: flask_security/core.py:116
 msgid "Password reset instructions"
-msgstr "비밀번호 재설정 안내"
+msgstr "คำแนะนำในการรีเซ็ตรหัสผ่าน"
 
 #: flask_security/core.py:146
 msgid "You do not have permission to view this resource."
-msgstr "이 리소스를 볼 권한이 없습니다."
+msgstr "คุณไม่มีสิทธิ์ดูทรัพยากรนี้"
 
 #: flask_security/core.py:148
 #, python-format
 msgid "Thank you. Confirmation instructions have been sent to %(email)s."
-msgstr "감사합니다. 확인 안내를 %(email)s(으)로 보냈습니다."
+msgstr "ขอบคุณ คำแนะนำในการยืนยันได้ถูกส่งไปยัง %(email)s แล้ว"
 
 #: flask_security/core.py:151
 msgid "Thank you. Your email has been confirmed."
-msgstr "감사합니다. 이메일이 확인되었습니다."
+msgstr "ขอบคุณ อีเมลของคุณได้รับการยืนยันแล้ว"
 
 #: flask_security/core.py:152
 msgid "Your email has already been confirmed."
-msgstr "이메일이 이미 확인되었습니다."
+msgstr "อีเมลของคุณได้รับการยืนยันแล้ว"
 
 #: flask_security/core.py:153
 msgid "Invalid confirmation token."
-msgstr "잘못된 확인 토큰입니다."
+msgstr "โทเค็นยืนยันไม่ถูกต้อง"
 
 #: flask_security/core.py:155
 #, python-format
 msgid "%(email)s is already associated with an account."
-msgstr "%(email)s은(는) 이미 계정에 연결되어 있습니다."
+msgstr "%(email)s เชื่อมโยงกับบัญชีอยู่แล้ว"
 
 #: flask_security/core.py:158
 msgid "Password does not match"
-msgstr "비밀번호가 일치하지 않습니다"
+msgstr "รหัสผ่านไม่ตรงกัน"
 
 #: flask_security/core.py:159
 msgid "Passwords do not match"
-msgstr "비밀번호가 일치하지 않습니다"
+msgstr "รหัสผ่านทั้งสองไม่ตรงกัน"
 
 #: flask_security/core.py:160
 msgid "Redirections outside the domain are forbidden"
-msgstr "도메인 외부로의 리디렉션은 허용되지 않습니다"
+msgstr "ไม่อนุญาตให้เปลี่ยนเส้นทางออกนอกโดเมน"
 
 #: flask_security/core.py:162
 #, python-format
 msgid "Instructions to reset your password have been sent to %(email)s."
-msgstr "비밀번호 재설정 안내를 %(email)s(으)로 보냈습니다."
+msgstr "คำแนะนำในการรีเซ็ตรหัสผ่านได้ถูกส่งไปยัง %(email)s แล้ว"
 
 #: flask_security/core.py:167
 #, python-format
 msgid ""
 "You did not reset your password within %(within)s. New instructions have "
 "been sent to %(email)s."
-msgstr "%(within)s 이내에 비밀번호를 재설정하지 않았습니다. 새 안내를 %(email)s(으)로 보냈습니다."
+msgstr ""
+"คุณไม่ได้รีเซ็ตรหัสผ่านภายใน %(within)s คำแนะนำใหม่ได้ถูกส่งไปยัง %(email)s "
+"แล้ว"
 
 #: flask_security/core.py:172
 msgid "Invalid reset password token."
-msgstr "잘못된 비밀번호 재설정 토큰입니다."
+msgstr "โทเค็นรีเซ็ตรหัสผ่านไม่ถูกต้อง"
 
 #: flask_security/core.py:173
 msgid "Email requires confirmation."
-msgstr "이메일 확인이 필요합니다."
+msgstr "อีเมลต้องได้รับการยืนยัน"
 
 #: flask_security/core.py:175
 #, python-format
 msgid "Confirmation instructions have been sent to %(email)s."
-msgstr "확인 안내를 %(email)s(으)로 보냈습니다."
+msgstr "คำแนะนำในการยืนยันได้ถูกส่งไปยัง %(email)s แล้ว"
 
 #: flask_security/core.py:180
 #, python-format
 msgid ""
 "You did not confirm your email within %(within)s. New instructions to "
 "confirm your email have been sent to %(email)s."
-msgstr "%(within)s 이내에 이메일을 확인하지 않았습니다. 이메일 확인을 위한 새 안내를 %(email)s(으)로 보냈습니다."
+msgstr ""
+"คุณไม่ได้ยืนยันอีเมลภายใน %(within)s "
+"คำแนะนำใหม่ในการยืนยันอีเมลได้ถูกส่งไปยัง %(email)s แล้ว"
 
 #: flask_security/core.py:188
 #, python-format
 msgid ""
 "You did not login within %(within)s. New instructions to login have been "
 "sent to %(email)s."
-msgstr "%(within)s 이내에 로그인하지 않았습니다. 로그인을 위한 새 안내를 %(email)s(으)로 보냈습니다."
+msgstr ""
+"คุณไม่ได้เข้าสู่ระบบภายใน %(within)s "
+"คำแนะนำใหม่ในการเข้าสู่ระบบได้ถูกส่งไปยัง %(email)s แล้ว"
 
 #: flask_security/core.py:194
 #, python-format
 msgid "Instructions to login have been sent to %(email)s."
-msgstr "로그인 안내를 %(email)s(으)로 보냈습니다."
+msgstr "คำแนะนำในการเข้าสู่ระบบได้ถูกส่งไปยัง %(email)s แล้ว"
 
 #: flask_security/core.py:197
 msgid "Invalid login token."
-msgstr "잘못된 로그인 토큰입니다."
+msgstr "โทเค็นเข้าสู่ระบบไม่ถูกต้อง"
 
 #: flask_security/core.py:198
 msgid "Account is disabled."
-msgstr "계정이 비활성화되어 있습니다."
+msgstr "บัญชีถูกปิดใช้งาน"
 
 #: flask_security/core.py:199
 msgid "Email not provided"
-msgstr "이메일을 입력하지 않았습니다"
+msgstr "ไม่ได้ระบุอีเมล"
 
 #: flask_security/core.py:200
 msgid "Invalid email address"
-msgstr "잘못된 이메일 주소입니다"
+msgstr "ที่อยู่อีเมลไม่ถูกต้อง"
 
 #: flask_security/core.py:201
 msgid "Password not provided"
-msgstr "비밀번호를 입력하지 않았습니다"
+msgstr "ไม่ได้ระบุรหัสผ่าน"
 
 #: flask_security/core.py:202
 msgid "No password is set for this user"
-msgstr "이 사용자에게 설정된 비밀번호가 없습니다"
+msgstr "ผู้ใช้นี้ยังไม่ได้ตั้งรหัสผ่าน"
 
 #: flask_security/core.py:204
 #, python-format
 msgid "Password must be at least %(length)s characters"
-msgstr "비밀번호는 최소 %(length)s자여야 합니다"
+msgstr "รหัสผ่านต้องมีอย่างน้อย %(length)s ตัวอักษร"
 
 #: flask_security/core.py:207
 msgid "Password not complex enough"
-msgstr "비밀번호가 충분히 복잡하지 않습니다"
+msgstr "รหัสผ่านไม่ซับซ้อนเพียงพอ"
 
 #: flask_security/core.py:208
 msgid "Password on breached list"
-msgstr "비밀번호가 유출 목록에 있습니다"
+msgstr "รหัสผ่านอยู่ในรายการที่ถูกเจาะข้อมูล"
 
 #: flask_security/core.py:210
 msgid "Failed to contact breached passwords site"
-msgstr "유출 비밀번호 사이트에 연결하지 못했습니다"
+msgstr "ไม่สามารถติดต่อเว็บไซต์ตรวจสอบรหัสผ่านที่ถูกเจาะข้อมูลได้"
 
 #: flask_security/core.py:213
 msgid "Specified user does not exist"
-msgstr "지정한 사용자가 존재하지 않습니다"
+msgstr "ไม่พบผู้ใช้ที่ระบุ"
 
 #: flask_security/core.py:214
 msgid "Invalid password"
-msgstr "잘못된 비밀번호입니다"
+msgstr "รหัสผ่านไม่ถูกต้อง"
 
 #: flask_security/core.py:215
 msgid "Forgot password?"
-msgstr "비밀번호를 분실하였습니까?"
+msgstr "ลืมรหัสผ่าน?"
 
 #: flask_security/core.py:218
 msgid ""
 "You successfully reset your password and you have been logged in "
 "automatically."
-msgstr "비밀번호를 재설정했으며 자동으로 로그인되었습니다."
+msgstr "คุณรีเซ็ตรหัสผ่านสำเร็จและได้เข้าสู่ระบบโดยอัตโนมัติแล้ว"
 
 #: flask_security/core.py:224
 msgid "Your new password must be different than your previous password."
-msgstr "새 비밀번호는 이전 비밀번호와 달라야 합니다."
+msgstr "รหัสผ่านใหม่ต้องแตกต่างจากรหัสผ่านเดิม"
 
 #: flask_security/core.py:227
 msgid "You successfully changed your password."
-msgstr "비밀번호를 변경했습니다."
+msgstr "คุณเปลี่ยนรหัสผ่านสำเร็จแล้ว"
 
 #: flask_security/core.py:228
 msgid "Please log in to access this page."
-msgstr "이 페이지에 접근하려면 로그인하십시오."
+msgstr "กรุณาเข้าสู่ระบบเพื่อเข้าถึงหน้านี้"
 
 #: flask_security/core.py:229
 msgid "Please reauthenticate to access this page."
-msgstr "이 페이지에 접근하려면 다시 인증하십시오."
+msgstr "กรุณายืนยันตัวตนอีกครั้งเพื่อเข้าถึงหน้านี้"
 
 #: flask_security/forms.py:48
 msgid "Email Address"
-msgstr "이메일 주소"
+msgstr "ที่อยู่อีเมล"
 
 #: flask_security/forms.py:49
 msgid "Password"
-msgstr "비밀번호"
+msgstr "รหัสผ่าน"
 
 #: flask_security/forms.py:50 flask_security/templates/security/_menu.html:4
 #: flask_security/templates/security/login_user.html:3
 msgid "Login"
-msgstr "로그인"
+msgstr "เข้าสู่ระบบ"
 
 #: flask_security/forms.py:51 flask_security/templates/security/_menu.html:6
 #: flask_security/templates/security/register_user.html:3
 msgid "Register"
-msgstr "가입"
+msgstr "ลงทะเบียน"
 
 #: flask_security/forms.py:52
 msgid "Resend Confirmation Instructions"
-msgstr "확인 안내 다시 보내기"
+msgstr "ส่งคำแนะนำยืนยันอีกครั้ง"
 
 #: flask_security/forms.py:53
 msgid "Recover Password"
-msgstr "비밀번호 복구"
+msgstr "กู้คืนรหัสผ่าน"
 
 #: flask_security/forms.py:54
 msgid "Reset Password"
-msgstr "비밀번호 초기화"
+msgstr "รีเซ็ตรหัสผ่าน"
 
 #: flask_security/forms.py:55
 msgid "Retype Password"
-msgstr "비밀번호 다시 입력"
+msgstr "พิมพ์รหัสผ่านอีกครั้ง"
 
 #: flask_security/forms.py:56
 msgid "New Password"
-msgstr "새 비밀번호"
+msgstr "รหัสผ่านใหม่"
 
 #: flask_security/forms.py:57
 msgid "Change Password"
-msgstr "비밀번호 변경"
+msgstr "เปลี่ยนรหัสผ่าน"
 
 #: flask_security/templates/security/_menu.html:2
 msgid "Menu"
-msgstr "메뉴"
+msgstr "เมนู"
 
 #: flask_security/templates/security/_menu.html:9
 msgid "Forgot password"
-msgstr "비밀번호 찾기"
+msgstr "ลืมรหัสผ่าน"
 
 #: flask_security/templates/security/_menu.html:12
 msgid "Confirm account"
-msgstr "계정 확인"
+msgstr "ยืนยันบัญชี"
 
 #: flask_security/templates/security/change_password.html:3
 msgid "Change password"
-msgstr "비밀번호 변경"
+msgstr "เปลี่ยนรหัสผ่าน"
 
 #: flask_security/templates/security/forgot_password.html:3
 msgid "Send password reset instructions"
-msgstr "비밀번호 재설정 안내 보내기"
+msgstr "ส่งคำแนะนำรีเซ็ตรหัสผ่าน"
 
 #: flask_security/templates/security/reset_password.html:3
 msgid "Reset password"
-msgstr "비밀번호 재설정"
+msgstr "รีเซ็ตรหัสผ่าน"
 
 #: flask_security/templates/security/send_confirmation.html:3
 msgid "Resend confirmation instructions"
-msgstr "확인 안내 다시 보내기"
+msgstr "ส่งคำแนะนำยืนยันอีกครั้ง"
 
 #: flask_security/templates/security/email/change_notice.html:1
 msgid "Your password has been changed."
-msgstr "비밀번호를 변경했습니다."
+msgstr "รหัสผ่านของคุณถูกเปลี่ยนแล้ว"
 
 #: flask_security/templates/security/email/change_notice.html:3
 msgid "If you did not change your password,"
-msgstr "비밀번호를 변경하지 않았으면,"
+msgstr "หากคุณไม่ได้เปลี่ยนรหัสผ่าน"
 
 #: flask_security/templates/security/email/change_notice.html:3
 msgid "click here to reset it"
-msgstr "재설정하려면 여기를 클릭하십시오"
+msgstr "คลิกที่นี่เพื่อรีเซ็ต"
 
 #: flask_security/templates/security/email/confirmation_instructions.html:1
 msgid "Please confirm your email through the link below:"
-msgstr "아래 링크로 이메일을 확인해 주십시오:"
+msgstr "กรุณายืนยันอีเมลของคุณผ่านลิงก์ด้านล่าง:"
 
 #: flask_security/templates/security/email/confirmation_instructions.html:3
 #: flask_security/templates/security/email/welcome.html:6
 msgid "Confirm my account"
-msgstr "내 계정 확인"
+msgstr "ยืนยันบัญชีของฉัน"
 
 #: flask_security/templates/security/email/reset_instructions.html:1
 msgid "Click here to reset your password"
-msgstr "비밀번호를 재설정하려면 여기를 클릭하십시오"
+msgstr "คลิกที่นี่เพื่อรีเซ็ตรหัสผ่าน"
 
 #: flask_security/templates/security/email/welcome.html:1
 #, python-format
 msgid "Welcome %(email)s!"
-msgstr "%(email)s님, 환영합니다."
+msgstr "ยินดีต้อนรับ %(email)s!"
 
 #: flask_security/templates/security/email/welcome.html:4
 msgid "You can confirm your email through the link below:"
-msgstr "아래 링크로 이메일을 확인할 수 있습니다:"
+msgstr "คุณสามารถยืนยันอีเมลของคุณผ่านลิงก์ด้านล่าง:"

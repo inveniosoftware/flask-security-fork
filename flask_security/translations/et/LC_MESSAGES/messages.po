@@ -1,7 +1,6 @@
-# Translations template for Flask-Security-Invenio.
-# Copyright (C) 2026 CERN
-# This file is distributed under the same license as the
-# Flask-Security-Invenio project.
+# Translations template for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 # 
 # Translators:
@@ -10,9 +9,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Flask-Security-Invenio 4.2.1\n"
-"Report-Msgid-Bugs-To: info@inveniosoftware.org\n"
-"POT-Creation-Date: 2026-06-23 08:18+0000\n"
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-07-02 19:44+0000\n"
 "PO-Revision-Date: 2025-05-07 11:05+0000\n"
 "Last-Translator: Martin Jantson <martinjantson97@gmail.com>, 2025\n"
 "Language-Team: Estonian (https://app.transifex.com/inveniosoftware/teams/23537/et/)\n"

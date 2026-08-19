@@ -1,22 +1,22 @@
-# Translations template for Flask-Security-Invenio.
-# Copyright (C) 2026 CERN
-# This file is distributed under the same license as the
-# Flask-Security-Invenio project.
+# Translations template for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 # 
 # Translators:
 # Berat Aldemir <berataldemir@gmail.com>, 2025
 # Ben Translation and Interpreting Services <info@bentercume.com>, 2025
 # Eylül-1 -, 2025
+# Cansu SAZOĞLU, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Flask-Security-Invenio 4.2.1\n"
-"Report-Msgid-Bugs-To: info@inveniosoftware.org\n"
-"POT-Creation-Date: 2026-06-23 08:18+0000\n"
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-07-02 19:44+0000\n"
 "PO-Revision-Date: 2025-05-07 11:05+0000\n"
-"Last-Translator: Eylül-1 -, 2025\n"
+"Last-Translator: Cansu SAZOĞLU, 2026\n"
 "Language-Team: Turkish (https://app.transifex.com/inveniosoftware/teams/23537/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -165,19 +165,27 @@ msgstr "Bu kullanıcı için şifre ayarlanmadı"
 #: flask_security/core.py:204
 #, python-format
 msgid "Password must be at least %(length)s characters"
-msgstr ""
+msgstr "Parola en az %(length)s karakter uzunluğunda olmalıdır."
 
 #: flask_security/core.py:207
 msgid "Password not complex enough"
-msgstr ""
+msgstr "Parola yeterli karmaşıklıkta değil."
 
 #: flask_security/core.py:208
 msgid "Password on breached list"
 msgstr ""
+"Bu parola daha önce ele geçirilmiş parolalar listesinde bulunuyor.\n"
+" \n"
+" \n"
+" \n"
+" "
 
 #: flask_security/core.py:210
 msgid "Failed to contact breached passwords site"
 msgstr ""
+"Sızdırılmış parolaları kontrol eden siteye ulaşılamadı.\n"
+" \n"
+" "
 
 #: flask_security/core.py:213
 msgid "Specified user does not exist"
