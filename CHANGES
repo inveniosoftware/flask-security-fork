@@ -4,6 +4,12 @@ Flask-Security-Invenio Changelog
 Here you can see the full list of changes between each Flask-Security-Invenio
 release.
 
+Version v4.2.5
+--------------
+
+released August 19th 2026
+
+- i18n: pulled translations
 
 Version v4.2.4
 --------------
