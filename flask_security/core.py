@@ -241,7 +241,8 @@ _default_forms = {
 
 
 def _user_loader(user_id):
-    return _security.datastore.find_user(id=user_id)
+    # better would be to do that conversion in flask-login
+    return _security.datastore.find_user(id=int(user_id))
 
 
 def _identity_loader():
