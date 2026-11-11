@@ -6,7 +6,6 @@
 # Translators:
 # Vasyl Ostrovskyi <vasyusya@yahoo.com>, 2025
 # 
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"

@@ -8,7 +8,6 @@
 # Dora Szauter, 2025
 # Zoltán Kanász-Nagy, 2025
 # 
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"

@@ -85,8 +85,6 @@ include = [
 [tool.babel]
 [tool.babel.compile_catalog]
 directory = "flask_security/translations/"
-use_fuzzy = true
-
 [tool.babel.extract_messages]
 copyright_holder = "CERN"
 msgid_bugs_address = "info@inveniosoftware.org"

@@ -7,7 +7,6 @@
 # Alizee Pace <alizee.pace@gmail.com>, 2025
 # Tibor Simko <tibor.simko@cern.ch>, 2025
 # 
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
