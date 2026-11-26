@@ -7,7 +7,7 @@
 name = "Flask-Security-Invenio"
 description = "Simple security for Flask apps."
 readme = "README.rst"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 license = "MIT"
 authors = [
   { name = "CERN/TU Wien/JRC", email = "info@inveniosoftware.org" },
